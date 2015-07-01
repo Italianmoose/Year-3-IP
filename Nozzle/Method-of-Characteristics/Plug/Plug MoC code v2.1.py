@@ -58,3 +58,15 @@ def Plot_Geo(Me, gamma=1.4, N=50):
     plt.plot(coords[0], coords[1])
     plt.plot(0,1, marker='o')
     return
+
+
+def Write_Geometry(Me, gamma=1.4, N=50):
+    """Creates plug nozzle geometry and writes it to the file 'geo.txt'"""
+    x = MoC_Plug_Nozzle_Geometry(Me, gamma, N)
+    z = numpy.zeros(len(x[0]))
+    f = open('geo.txt', 'w')
+    for i in range(len(x[0])):
+        f.write('{} {} {}'.format(x[0][i], x[1][i], z[i]))
+        f.write('\n')
+    f.close()
+    return
