@@ -1,6 +1,8 @@
 # Year-3-IP
 A collection of scripts /etc for my 3rd Year Individual Project, building a supersonic ramjet (NOT a SCRAMJET)
 
+Currently waiting for some more info from supervisor and access to a supercomputer
+
 Changelog:
 
 2015-07-01:
