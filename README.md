@@ -5,6 +5,9 @@ Currently waiting for some more info from supervisor and access to a supercomput
 
 Changelog:
 
+2015-19-21:
+Added OSCILOS-Long combustion analyser
+
 2015-07-21:
 Added NASA code best practice pdf, synced CFD progress
 
