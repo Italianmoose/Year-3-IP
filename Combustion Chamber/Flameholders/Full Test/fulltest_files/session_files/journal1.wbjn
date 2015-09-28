@@ -1,0 +1,1058 @@
+﻿# encoding: utf-8
+# Release 16.1
+SetScriptVersion(Version="16.1.91")
+template1 = GetTemplate(TemplateName="Fluid Flow")
+system1 = template1.CreateSystem()
+system1.DisplayText = "Flameholder test"
+system1.Notes = "Geometry: 300mm long, 20mm high"
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+system1.Notes = """Geometry: 300mm long, 20mm high
+Velocity: 50m/s"""
+geometry1.Edit()
+geometry1.Exit()
+meshComponent1 = system1.GetComponent(Name="Mesh")
+meshComponent1.Refresh()
+mesh1 = system1.GetContainer(ComponentName="Mesh")
+mesh1.Edit()
+mesh1.Exit()
+mesh1.Edit()
+mesh1.Exit()
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Refresh()
+setup1 = system1.GetContainer(ComponentName="Setup")
+fluentLauncherSettings1 = setup1.GetFluentLauncherSettings()
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(EnvPath={}, RunParallel=True, NumberOfProcessors=8, NumberOfGPGPUs=1))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-use-window-id 1)(dolly-camera 0.0320806 -0.0348641 0)(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models"))')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Models*Frame1*Table1*Frame1*List1(Models)\" '( 2))(cx-gui-do cx-activate-item \"Models*Frame1*Table1*Frame1*List1(Models)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Models*Frame1*Table1*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-toggle-button "Viscous Model*Frame1*Table1*Frame1(Model)*ToggleBox1(Model)*k-epsilon (2 eqn)" #f)(cx-gui-do cx-activate-item "Viscous Model*Frame1*Table1*Frame1(Model)*ToggleBox1(Model)*k-epsilon (2 eqn)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-toggle-button "Viscous Model*Frame1*Table1*Frame6(k-epsilon Model)*ToggleBox6(k-epsilon Model)*Realizable" #f)(cx-gui-do cx-activate-item "Viscous Model*Frame1*Table1*Frame6(k-epsilon Model)*ToggleBox6(k-epsilon Model)*Realizable")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Viscous Model*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Models*Frame1*Table1*Frame1*List1(Models)\" '( 5))(cx-gui-do cx-activate-item \"Models*Frame1*Table1*Frame1*List1(Models)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Models*Frame1*Table1*PushButton2(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-toggle-button "Species Model*Frame1*Table1*Frame1(Model)*ToggleBox1(Model)*Non-Premixed Combustion" #f)(cx-gui-do cx-activate-item "Species Model*Frame1*Table1*Frame1(Model)*ToggleBox1(Model)*Non-Premixed Combustion")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-toggle-button "Species Model*Frame2*Table2*Frame4(PDF Table Creation)*Frame1(Chemistry)*Frame1*Frame1*Frame2(Energy Treatment)*ToggleBox2(Energy Treatment)*Non-Adiabatic" #f)(cx-gui-do cx-activate-item "Species Model*Frame2*Table2*Frame4(PDF Table Creation)*Frame1(Chemistry)*Frame1*Frame1*Frame2(Energy Treatment)*ToggleBox2(Energy Treatment)*Non-Adiabatic")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-real-entry-list \"Species Model*Frame2*Table2*Frame4(PDF Table Creation)*Frame3(Boundary)*Frame1*Frame1*Table1*RealEntry6\" '( 1))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Species Model*Frame2*Table2*Frame4(PDF Table Creation)*Frame9(Table)*PushButton3(Calculate PDF Table)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Species Model*PanelButtons*PushButton1(Apply)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Species Model*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|velocity-inlet (velocity-inlet)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|velocity-inlet (velocity-inlet)"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-real-entry-list \"velocity-inlet-5-1*Frame4*Frame1(Momentum)*Frame1*Table1*Frame12*Table12*RealEntry2(Velocity Magnitude)\" '( 50))(cx-gui-do cx-activate-item \"velocity-inlet-5-1*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|pressure-outlet (pressure-outlet)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|pressure-outlet (pressure-outlet)"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "pressure-outlet-7-1*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|mass-flow-inlet (mass-flow-inlet)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|mass-flow-inlet (mass-flow-inlet)"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-real-entry-list \"mass-flow-inlet-6-1*Frame4*Frame1(Momentum)*Frame1*Table1*Frame8*Table8*RealEntry2(Mass Flow Rate)\" '( 0.01))(cx-gui-do cx-set-real-entry-list \"mass-flow-inlet-6-1*Frame4*Frame7(Species)*Frame1*Table1*Frame36*Table36*RealEntry2(Mean Mixture Fraction)\" '( 1))(cx-gui-do cx-activate-item \"mass-flow-inlet-6-1*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Solution Methods"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Solution Controls"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Solution Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Frame1*Table1*ButtonBox10*PushButton2(Initialize)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Calculation Activities"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-set-integer-entry "Run Calculation*Frame1*Table1*IntegerEntry9(Number of Iterations)" 100)(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*IntegerEntry9(Number of Iterations)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*PushButton1(Check Case)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Case Check*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|General"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "General*Frame1*Table1*Frame1(Mesh)*ButtonBox1(Mesh)*PushButton3(Check)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*PushButton1(Check Case)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Case Check*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*PushButton21(Calculate)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1 3))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 6))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 3))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-toggle-button "Pathlines*Frame4(Pulse Mode)*ButtonBox4(Pulse Mode)*Continuous" #f)(cx-gui-do cx-activate-item "Pathlines*Frame4(Pulse Mode)*ButtonBox4(Pulse Mode)*Continuous")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(Pulse)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-position \"Pathlines\" '(x 288 y 446))(cx-gui-do cx-set-position \"Pathlines\" '(x 287 y 446))(cx-gui-do cx-set-position \"Pathlines\" '(x 287 y 447))(cx-gui-do cx-set-position \"Pathlines\" '(x 286 y 447))(cx-gui-do cx-set-position \"Pathlines\" '(x 286 y 448))(cx-gui-do cx-set-position \"Pathlines\" '(x 285 y 449))(cx-gui-do cx-set-position \"Pathlines\" '(x 285 y 450))(cx-gui-do cx-set-position \"Pathlines\" '(x 284 y 450))(cx-gui-do cx-set-position \"Pathlines\" '(x 284 y 451))(cx-gui-do cx-set-position \"Pathlines\" '(x 283 y 451))(cx-gui-do cx-set-position \"Pathlines\" '(x 283 y 452))(cx-gui-do cx-set-position \"Pathlines\" '(x 282 y 453))(cx-gui-do cx-set-position \"Pathlines\" '(x 282 y 454))(cx-gui-do cx-set-position \"Pathlines\" '(x 281 y 454))(cx-gui-do cx-set-position \"Pathlines\" '(x 281 y 455))(cx-gui-do cx-set-position \"Pathlines\" '(x 281 y 456))(cx-gui-do cx-set-position \"Pathlines\" '(x 280 y 456))(cx-gui-do cx-set-position \"Pathlines\" '(x 280 y 457))(cx-gui-do cx-set-position \"Pathlines\" '(x 279 y 457))(cx-gui-do cx-set-position \"Pathlines\" '(x 279 y 458))(cx-gui-do cx-set-position \"Pathlines\" '(x 278 y 458))(cx-gui-do cx-set-position \"Pathlines\" '(x 278 y 459))(cx-gui-do cx-set-position \"Pathlines\" '(x 278 y 460))(cx-gui-do cx-set-position \"Pathlines\" '(x 277 y 460))(cx-gui-do cx-set-position \"Pathlines\" '(x 277 y 461))(cx-gui-do cx-set-position \"Pathlines\" '(x 276 y 462))(cx-gui-do cx-set-position \"Pathlines\" '(x 275 y 463))(cx-gui-do cx-set-position \"Pathlines\" '(x 274 y 464))(cx-gui-do cx-set-position \"Pathlines\" '(x 274 y 465))(cx-gui-do cx-set-position \"Pathlines\" '(x 273 y 465))(cx-gui-do cx-set-position \"Pathlines\" '(x 272 y 466))(cx-gui-do cx-set-position \"Pathlines\" '(x 272 y 467))(cx-gui-do cx-set-position \"Pathlines\" '(x 271 y 468))(cx-gui-do cx-set-position \"Pathlines\" '(x 270 y 469))(cx-gui-do cx-set-position \"Pathlines\" '(x 269 y 470))(cx-gui-do cx-set-position \"Pathlines\" '(x 269 y 471))(cx-gui-do cx-set-position \"Pathlines\" '(x 268 y 472))(cx-gui-do cx-set-position \"Pathlines\" '(x 267 y 473))(cx-gui-do cx-set-position \"Pathlines\" '(x 267 y 474))(cx-gui-do cx-set-position \"Pathlines\" '(x 266 y 474))(cx-gui-do cx-set-position \"Pathlines\" '(x 266 y 475))(cx-gui-do cx-set-position \"Pathlines\" '(x 265 y 475))(cx-gui-do cx-set-position \"Pathlines\" '(x 265 y 476))(cx-gui-do cx-set-position \"Pathlines\" '(x 264 y 476))(cx-gui-do cx-set-position \"Pathlines\" '(x 264 y 477))(cx-gui-do cx-set-position \"Pathlines\" '(x 263 y 478))(cx-gui-do cx-set-position \"Pathlines\" '(x 262 y 479))(cx-gui-do cx-set-position \"Pathlines\" '(x 261 y 480))(cx-gui-do cx-set-position \"Pathlines\" '(x 261 y 481))(cx-gui-do cx-set-position \"Pathlines\" '(x 260 y 481))(cx-gui-do cx-set-position \"Pathlines\" '(x 260 y 482))(cx-gui-do cx-set-position \"Pathlines\" '(x 259 y 483))(cx-gui-do cx-set-position \"Pathlines\" '(x 259 y 484))(cx-gui-do cx-set-position \"Pathlines\" '(x 258 y 484))(cx-gui-do cx-set-position \"Pathlines\" '(x 258 y 485))(cx-gui-do cx-set-position \"Pathlines\" '(x 257 y 485))(cx-gui-do cx-set-position \"Pathlines\" '(x 257 y 486))(cx-gui-do cx-set-position \"Pathlines\" '(x 256 y 486))(cx-gui-do cx-set-position \"Pathlines\" '(x 256 y 487))(cx-gui-do cx-set-position \"Pathlines\" '(x 255 y 488))(cx-gui-do cx-set-position \"Pathlines\" '(x 254 y 489))(cx-gui-do cx-set-position \"Pathlines\" '(x 253 y 490))(cx-gui-do cx-set-position \"Pathlines\" '(x 252 y 491))(cx-gui-do cx-set-position \"Pathlines\" '(x 251 y 492))(cx-gui-do cx-set-position \"Pathlines\" '(x 250 y 493))(cx-gui-do cx-set-position \"Pathlines\" '(x 250 y 494))(cx-gui-do cx-set-position \"Pathlines\" '(x 249 y 494))(cx-gui-do cx-set-position \"Pathlines\" '(x 249 y 495))(cx-gui-do cx-set-position \"Pathlines\" '(x 248 y 496))(cx-gui-do cx-set-position \"Pathlines\" '(x 247 y 496))(cx-gui-do cx-set-position \"Pathlines\" '(x 247 y 497))(cx-gui-do cx-set-position \"Pathlines\" '(x 247 y 498))(cx-gui-do cx-set-position \"Pathlines\" '(x 246 y 498))(cx-gui-do cx-set-position \"Pathlines\" '(x 246 y 499))(cx-gui-do cx-set-position \"Pathlines\" '(x 245 y 499))(cx-gui-do cx-set-position \"Pathlines\" '(x 245 y 500))(cx-gui-do cx-set-position \"Pathlines\" '(x 244 y 500))(cx-gui-do cx-set-position \"Pathlines\" '(x 244 y 501))(cx-gui-do cx-set-position \"Pathlines\" '(x 243 y 502))(cx-gui-do cx-set-position \"Pathlines\" '(x 242 y 503))(cx-gui-do cx-set-position \"Pathlines\" '(x 241 y 504))(cx-gui-do cx-set-position \"Pathlines\" '(x 241 y 505))(cx-gui-do cx-set-position \"Pathlines\" '(x 240 y 505))(cx-gui-do cx-set-position \"Pathlines\" '(x 240 y 506))(cx-gui-do cx-set-position \"Pathlines\" '(x 239 y 506))(cx-gui-do cx-set-position \"Pathlines\" '(x 239 y 507))(cx-gui-do cx-set-position \"Pathlines\" '(x 238 y 508))(cx-gui-do cx-set-position \"Pathlines\" '(x 237 y 508))(cx-gui-do cx-set-position \"Pathlines\" '(x 237 y 509))(cx-gui-do cx-set-position \"Pathlines\" '(x 236 y 509))(cx-gui-do cx-set-position \"Pathlines\" '(x 236 y 510))(cx-gui-do cx-set-position \"Pathlines\" '(x 235 y 511))(cx-gui-do cx-set-position \"Pathlines\" '(x 234 y 512))(cx-gui-do cx-set-position \"Pathlines\" '(x 233 y 513))(cx-gui-do cx-set-position \"Pathlines\" '(x 232 y 513))(cx-gui-do cx-set-position \"Pathlines\" '(x 232 y 514))(cx-gui-do cx-set-position \"Pathlines\" '(x 231 y 514))(cx-gui-do cx-set-position \"Pathlines\" '(x 231 y 515))(cx-gui-do cx-set-position \"Pathlines\" '(x 230 y 516))(cx-gui-do cx-set-position \"Pathlines\" '(x 229 y 516))(cx-gui-do cx-set-position \"Pathlines\" '(x 229 y 517))(cx-gui-do cx-set-position \"Pathlines\" '(x 228 y 518))(cx-gui-do cx-set-position \"Pathlines\" '(x 227 y 519))(cx-gui-do cx-set-position \"Pathlines\" '(x 226 y 520))(cx-gui-do cx-set-position \"Pathlines\" '(x 225 y 520))(cx-gui-do cx-set-position \"Pathlines\" '(x 225 y 521))(cx-gui-do cx-set-position \"Pathlines\" '(x 224 y 522))(cx-gui-do cx-set-position \"Pathlines\" '(x 223 y 522))(cx-gui-do cx-set-position \"Pathlines\" '(x 223 y 523))(cx-gui-do cx-set-position \"Pathlines\" '(x 222 y 524))(cx-gui-do cx-set-position \"Pathlines\" '(x 221 y 525))(cx-gui-do cx-set-position \"Pathlines\" '(x 221 y 526))(cx-gui-do cx-set-position \"Pathlines\" '(x 220 y 526))(cx-gui-do cx-set-position \"Pathlines\" '(x 219 y 527))(cx-gui-do cx-set-position \"Pathlines\" '(x 218 y 528))(cx-gui-do cx-set-position \"Pathlines\" '(x 217 y 529))(cx-gui-do cx-set-position \"Pathlines\" '(x 216 y 530))(cx-gui-do cx-set-position \"Pathlines\" '(x 216 y 531))(cx-gui-do cx-set-position \"Pathlines\" '(x 215 y 531))(cx-gui-do cx-set-position \"Pathlines\" '(x 214 y 532))(cx-gui-do cx-set-position \"Pathlines\" '(x 213 y 533))(cx-gui-do cx-set-position \"Pathlines\" '(x 212 y 534))(cx-gui-do cx-set-position \"Pathlines\" '(x 211 y 535))(cx-gui-do cx-set-position \"Pathlines\" '(x 211 y 536))(cx-gui-do cx-set-position \"Pathlines\" '(x 210 y 536))(cx-gui-do cx-set-position \"Pathlines\" '(x 210 y 537))(cx-gui-do cx-set-position \"Pathlines\" '(x 209 y 538))(cx-gui-do cx-set-position \"Pathlines\" '(x 208 y 538))(cx-gui-do cx-set-position \"Pathlines\" '(x 208 y 539))(cx-gui-do cx-set-position \"Pathlines\" '(x 207 y 539))(cx-gui-do cx-set-position \"Pathlines\" '(x 207 y 540))(cx-gui-do cx-set-position \"Pathlines\" '(x 206 y 540))(cx-gui-do cx-set-position \"Pathlines\" '(x 205 y 541))(cx-gui-do cx-set-position \"Pathlines\" '(x 204 y 542))(cx-gui-do cx-set-position \"Pathlines\" '(x 203 y 543))(cx-gui-do cx-set-position \"Pathlines\" '(x 202 y 543))(cx-gui-do cx-set-position \"Pathlines\" '(x 202 y 544))(cx-gui-do cx-set-position \"Pathlines\" '(x 201 y 544))(cx-gui-do cx-set-position \"Pathlines\" '(x 200 y 545))(cx-gui-do cx-set-position \"Pathlines\" '(x 199 y 545))(cx-gui-do cx-set-position \"Pathlines\" '(x 199 y 546))(cx-gui-do cx-set-position \"Pathlines\" '(x 198 y 547))(cx-gui-do cx-set-position \"Pathlines\" '(x 197 y 548))(cx-gui-do cx-set-position \"Pathlines\" '(x 196 y 549))(cx-gui-do cx-set-position \"Pathlines\" '(x 195 y 550))(cx-gui-do cx-set-position \"Pathlines\" '(x 194 y 550))(cx-gui-do cx-set-position \"Pathlines\" '(x 193 y 550))(cx-gui-do cx-set-position \"Pathlines\" '(x 192 y 551))(cx-gui-do cx-set-position \"Pathlines\" '(x 191 y 552))(cx-gui-do cx-set-position \"Pathlines\" '(x 190 y 553))(cx-gui-do cx-set-position \"Pathlines\" '(x 189 y 554))(cx-gui-do cx-set-position \"Pathlines\" '(x 189 y 555))(cx-gui-do cx-set-position \"Pathlines\" '(x 188 y 556))(cx-gui-do cx-set-position \"Pathlines\" '(x 187 y 556))(cx-gui-do cx-set-position \"Pathlines\" '(x 187 y 557))(cx-gui-do cx-set-position \"Pathlines\" '(x 186 y 558))(cx-gui-do cx-set-position \"Pathlines\" '(x 185 y 559))(cx-gui-do cx-set-position \"Pathlines\" '(x 184 y 560))(cx-gui-do cx-set-position \"Pathlines\" '(x 183 y 560))(cx-gui-do cx-set-position \"Pathlines\" '(x 183 y 561))(cx-gui-do cx-set-position \"Pathlines\" '(x 182 y 561))(cx-gui-do cx-set-position \"Pathlines\" '(x 181 y 562))(cx-gui-do cx-set-position \"Pathlines\" '(x 180 y 562))(cx-gui-do cx-set-position \"Pathlines\" '(x 180 y 563))(cx-gui-do cx-set-position \"Pathlines\" '(x 179 y 563))(cx-gui-do cx-set-position \"Pathlines\" '(x 179 y 564))(cx-gui-do cx-set-position \"Pathlines\" '(x 178 y 564))(cx-gui-do cx-set-position \"Pathlines\" '(x 178 y 565))(cx-gui-do cx-set-position \"Pathlines\" '(x 177 y 565))(cx-gui-do cx-set-position \"Pathlines\" '(x 176 y 566))(cx-gui-do cx-set-position \"Pathlines\" '(x 175 y 566))(cx-gui-do cx-set-position \"Pathlines\" '(x 175 y 567))(cx-gui-do cx-set-position \"Pathlines\" '(x 174 y 568))(cx-gui-do cx-set-position \"Pathlines\" '(x 173 y 569))(cx-gui-do cx-set-position \"Pathlines\" '(x 173 y 570))(cx-gui-do cx-set-position \"Pathlines\" '(x 172 y 571))(cx-gui-do cx-set-position \"Pathlines\" '(x 171 y 572))(cx-gui-do cx-set-position \"Pathlines\" '(x 170 y 572))(cx-gui-do cx-set-position \"Pathlines\" '(x 170 y 573))(cx-gui-do cx-set-position \"Pathlines\" '(x 169 y 574))(cx-gui-do cx-set-position \"Pathlines\" '(x 168 y 575))(cx-gui-do cx-set-position \"Pathlines\" '(x 167 y 576))(cx-gui-do cx-set-position \"Pathlines\" '(x 166 y 576))(cx-gui-do cx-set-position \"Pathlines\" '(x 166 y 577))(cx-gui-do cx-set-position \"Pathlines\" '(x 165 y 577))(cx-gui-do cx-set-position \"Pathlines\" '(x 165 y 578))(cx-gui-do cx-set-position \"Pathlines\" '(x 164 y 578))(cx-gui-do cx-set-position \"Pathlines\" '(x 164 y 579))(cx-gui-do cx-set-position \"Pathlines\" '(x 163 y 580))(cx-gui-do cx-set-position \"Pathlines\" '(x 163 y 581))(cx-gui-do cx-set-position \"Pathlines\" '(x 162 y 581))(cx-gui-do cx-set-position \"Pathlines\" '(x 161 y 582))(cx-gui-do cx-set-position \"Pathlines\" '(x 161 y 583))(cx-gui-do cx-set-position \"Pathlines\" '(x 160 y 583))(cx-gui-do cx-set-position \"Pathlines\" '(x 160 y 584))(cx-gui-do cx-set-position \"Pathlines\" '(x 159 y 585))(cx-gui-do cx-set-position \"Pathlines\" '(x 158 y 586))(cx-gui-do cx-set-position \"Pathlines\" '(x 157 y 587))(cx-gui-do cx-set-position \"Pathlines\" '(x 157 y 588))(cx-gui-do cx-set-position \"Pathlines\" '(x 156 y 589))(cx-gui-do cx-set-position \"Pathlines\" '(x 155 y 589))(cx-gui-do cx-set-position \"Pathlines\" '(x 155 y 590))(cx-gui-do cx-set-position \"Pathlines\" '(x 154 y 590))(cx-gui-do cx-set-position \"Pathlines\" '(x 154 y 591))(cx-gui-do cx-set-position \"Pathlines\" '(x 153 y 592))(cx-gui-do cx-set-position \"Pathlines\" '(x 152 y 593))(cx-gui-do cx-set-position \"Pathlines\" '(x 151 y 594))(cx-gui-do cx-set-position \"Pathlines\" '(x 151 y 595))(cx-gui-do cx-set-position \"Pathlines\" '(x 150 y 595))(cx-gui-do cx-set-position \"Pathlines\" '(x 150 y 596))(cx-gui-do cx-set-position \"Pathlines\" '(x 149 y 597))(cx-gui-do cx-set-position \"Pathlines\" '(x 148 y 598))(cx-gui-do cx-set-position \"Pathlines\" '(x 148 y 599))(cx-gui-do cx-set-position \"Pathlines\" '(x 147 y 599))(cx-gui-do cx-set-position \"Pathlines\" '(x 147 y 600))(cx-gui-do cx-set-position \"Pathlines\" '(x 146 y 601))(cx-gui-do cx-set-position \"Pathlines\" '(x 145 y 602))(cx-gui-do cx-set-position \"Pathlines\" '(x 144 y 603))(cx-gui-do cx-set-position \"Pathlines\" '(x 143 y 604))(cx-gui-do cx-set-position \"Pathlines\" '(x 142 y 605))(cx-gui-do cx-set-position \"Pathlines\" '(x 142 y 606))(cx-gui-do cx-set-position \"Pathlines\" '(x 141 y 606))(cx-gui-do cx-set-position \"Pathlines\" '(x 141 y 607))(cx-gui-do cx-set-position \"Pathlines\" '(x 140 y 607))(cx-gui-do cx-set-position \"Pathlines\" '(x 140 y 608))(cx-gui-do cx-set-position \"Pathlines\" '(x 139 y 608))(cx-gui-do cx-set-position \"Pathlines\" '(x 139 y 609))(cx-gui-do cx-set-position \"Pathlines\" '(x 138 y 610))(cx-gui-do cx-set-position \"Pathlines\" '(x 138 y 611))(cx-gui-do cx-set-position \"Pathlines\" '(x 137 y 611))(cx-gui-do cx-set-position \"Pathlines\" '(x 137 y 612))(cx-gui-do cx-set-position \"Pathlines\" '(x 136 y 613))(cx-gui-do cx-set-position \"Pathlines\" '(x 135 y 613))(cx-gui-do cx-set-position \"Pathlines\" '(x 135 y 614))(cx-gui-do cx-set-position \"Pathlines\" '(x 134 y 614))(cx-gui-do cx-set-position \"Pathlines\" '(x 134 y 615))(cx-gui-do cx-set-position \"Pathlines\" '(x 133 y 616))(cx-gui-do cx-set-position \"Pathlines\" '(x 133 y 617))(cx-gui-do cx-set-position \"Pathlines\" '(x 132 y 617))(cx-gui-do cx-set-position \"Pathlines\" '(x 131 y 618))(cx-gui-do cx-set-position \"Pathlines\" '(x 131 y 619))(cx-gui-do cx-set-position \"Pathlines\" '(x 130 y 619))(cx-gui-do cx-set-position \"Pathlines\" '(x 130 y 620))(cx-gui-do cx-set-position \"Pathlines\" '(x 129 y 620))(cx-gui-do cx-set-position \"Pathlines\" '(x 129 y 621))(cx-gui-do cx-set-position \"Pathlines\" '(x 128 y 621))(cx-gui-do cx-set-position \"Pathlines\" '(x 128 y 622))(cx-gui-do cx-set-position \"Pathlines\" '(x 127 y 623))(cx-gui-do cx-set-position \"Pathlines\" '(x 127 y 624))(cx-gui-do cx-set-position \"Pathlines\" '(x 126 y 624))(cx-gui-do cx-set-position \"Pathlines\" '(x 126 y 625))(cx-gui-do cx-set-position \"Pathlines\" '(x 125 y 625))(cx-gui-do cx-set-position \"Pathlines\" '(x 125 y 626))(cx-gui-do cx-set-position \"Pathlines\" '(x 124 y 627))(cx-gui-do cx-set-position \"Pathlines\" '(x 124 y 628))(cx-gui-do cx-set-position \"Pathlines\" '(x 124 y 629))(cx-gui-do cx-set-position \"Pathlines\" '(x 123 y 629))(cx-gui-do cx-set-position \"Pathlines\" '(x 123 y 630))(cx-gui-do cx-set-position \"Pathlines\" '(x 122 y 630))(cx-gui-do cx-set-position \"Pathlines\" '(x 122 y 631))(cx-gui-do cx-set-position \"Pathlines\" '(x 121 y 632))(cx-gui-do cx-set-position \"Pathlines\" '(x 120 y 633))(cx-gui-do cx-set-position \"Pathlines\" '(x 120 y 634))(cx-gui-do cx-set-position \"Pathlines\" '(x 119 y 634))(cx-gui-do cx-set-position \"Pathlines\" '(x 119 y 635))(cx-gui-do cx-set-position \"Pathlines\" '(x 118 y 635))(cx-gui-do cx-set-position \"Pathlines\" '(x 118 y 636))(cx-gui-do cx-set-position \"Pathlines\" '(x 118 y 637))(cx-gui-do cx-set-position \"Pathlines\" '(x 117 y 637))(cx-gui-do cx-set-position \"Pathlines\" '(x 117 y 638))(cx-gui-do cx-set-position \"Pathlines\" '(x 117 y 639))(cx-gui-do cx-set-position \"Pathlines\" '(x 116 y 639))(cx-gui-do cx-set-position \"Pathlines\" '(x 116 y 640))(cx-gui-do cx-set-position \"Pathlines\" '(x 116 y 641))(cx-gui-do cx-set-position \"Pathlines\" '(x 115 y 641))(cx-gui-do cx-set-position \"Pathlines\" '(x 115 y 642))(cx-gui-do cx-set-position \"Pathlines\" '(x 115 y 643))(cx-gui-do cx-set-position \"Pathlines\" '(x 115 y 644))(cx-gui-do cx-set-position \"Pathlines\" '(x 114 y 644))(cx-gui-do cx-set-position \"Pathlines\" '(x 113 y 644))(cx-gui-do cx-set-position \"Pathlines\" '(x 113 y 645))(cx-gui-do cx-set-position \"Pathlines\" '(x 113 y 646))(cx-gui-do cx-set-position \"Pathlines\" '(x 112 y 646))(cx-gui-do cx-set-position \"Pathlines\" '(x 112 y 647))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(Pulse)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*zoom")')
+setup1.SendCommand(Command="""(cx-use-window-id 1)(cx-set-camera '(0.101069 0.00685068 0.220261) '(0.101069 0.00685068 0) '(-5.84405e-008 1 0) 0.0881042 0.0881042 \"perspective\")
+(cx-gui-do cx-set-list-tree-selections \"NavigationPane*List_Tree1\" (list \"Solution|Solution Methods\"))""")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList2(Pressure)\" '( 2))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList2(Pressure)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList1(Gradient)\" '( 2))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList1(Gradient)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList3(Momentum)\" '( 2))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList3(Momentum)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList4(Turbulent Kinetic Energy)\" '( 2))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList4(Turbulent Kinetic Energy)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList5(Turbulent Dissipation Rate)\" '( 2))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList5(Turbulent Dissipation Rate)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList6(Energy)\" '( 2))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList6(Energy)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList7(Mean Mixture Fraction)\" '( 2))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList7(Mean Mixture Fraction)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList8(Mixture Fraction Variance)\" '( 2))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList8(Mixture Fraction Variance)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Calculate")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-set-integer-entry "Run Calculation*Frame1*Table1*IntegerEntry9(Number of Iterations)" 1000)(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*IntegerEntry9(Number of Iterations)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*PushButton21(Calculate)")(cx-gui-do cx-set-toggle-button "Settings have changed!*Frame1*Table1*ToggleBox2*Use settings changes for current and future calculations" #f)(cx-gui-do cx-activate-item "Settings have changed!*Frame1*Table1*ToggleBox2*Use settings changes for current and future calculations")(cx-gui-do cx-activate-item "Settings have changed!*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(Pulse)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(Pulse)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(Compute)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*PushButton21(Calculate)")(cx-gui-do cx-activate-item "Working*Cancel")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Solution Methods"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Solution Controls"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Controls*Frame2*Table2*PushButton1(Default)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Controls*Frame2*Table2*PushButton5(Advanced)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Advanced Solution Controls*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Controls*Frame2*Table2*PushButton3(Equations)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Equations*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Solution Methods"))')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList2(Pressure)\" '( 1))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList2(Pressure)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList3(Momentum)\" '( 4))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList3(Momentum)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList4(Turbulent Kinetic Energy)\" '( 4))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList4(Turbulent Kinetic Energy)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList5(Turbulent Dissipation Rate)\" '( 4))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList5(Turbulent Dissipation Rate)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList6(Energy)\" '( 4))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList6(Energy)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList7(Mean Mixture Fraction)\" '( 4))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList7(Mean Mixture Fraction)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList8(Mixture Fraction Variance)\" '( 4))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame3(Spatial Discretization)*Table3(Spatial Discretization)*DropDownList8(Mixture Fraction Variance)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Fluxes"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Fluxes"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Flux Reports*Frame2*List2(Boundaries)\" '( 2))(cx-gui-do cx-activate-item \"Flux Reports*Frame2*List2(Boundaries)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Flux Reports*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Forces"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Forces"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Force Reports*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Surface Integrals"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Surface Integrals"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Surface Integrals*Frame1*DropDownList1(Report Type)\" '( 10))(cx-gui-do cx-activate-item \"Surface Integrals*Frame1*DropDownList1(Report Type)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Surface Integrals*Frame1*DropDownList1(Report Type)\" '( 9))(cx-gui-do cx-activate-item \"Surface Integrals*Frame1*DropDownList1(Report Type)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Surface Integrals*Frame2*Table2*DropDownList1(Field Variable)\" '( 5))(cx-gui-do cx-activate-item \"Surface Integrals*Frame2*Table2*DropDownList1(Field Variable)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Surface Integrals*Frame3*List3(Surfaces)\" '( 2))(cx-gui-do cx-activate-item \"Surface Integrals*Frame3*List3(Surfaces)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton1(Write)")(cx-gui-do cx-activate-item "Select File*Cancel")')
+setup1.SendCommand(Command=r'(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton1(Write)")(cx-gui-do cx-set-text-entry "Select File*Text" "D:\Individual Project (Uni stuff annex)\Year-3-IP\Combustion Chamber\Flameholders\Full Test\Shelf-basic\Flux of fuel through outlet")(cx-gui-do cx-activate-item "Select File*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Calculate")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Fluxes"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Fluxes*Edit...")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Flux Reports*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Surface Integrals"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Surface Integrals*Edit...")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Calculate")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Surface Integrals"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Surface Integrals*Edit...")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Calculate")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Surface Integrals"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Surface Integrals*Edit...")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Calculate")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Surface Integrals"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Surface Integrals*Edit...")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+Save(Overwrite=True)
+geometryComponent1 = system1.GetComponent(Name="Geometry")
+system2 = system1.Duplicate(
+    ComponentsToShare=[geometryComponent1, meshComponent1],
+    RelativeTo=system1)
+system2.DisplayText = "Arrow"
+system1.DisplayText = "Shelf"
+system2.Delete()
+system3 = system1.Duplicate(
+    ComponentsToShare=[],
+    RelativeTo=system1)
+system3.DisplayText = "Arrow"
+geometry2 = system3.GetContainer(ComponentName="Geometry")
+geometry2.Edit()
+geometry2.Exit()
+meshComponent2 = system3.GetComponent(Name="Mesh")
+meshComponent2.Refresh()
+mesh2 = system3.GetContainer(ComponentName="Mesh")
+mesh2.Edit()
+mesh2.Exit()
+setupComponent2 = system3.GetComponent(Name="Setup")
+setupComponent2.Refresh()
+setup2 = system3.GetContainer(ComponentName="Setup")
+fluentLauncherSettings2 = setup2.GetFluentLauncherSettings()
+fluentLauncherSettings2.SetEntityProperties(Properties=Set(EnvPath={}))
+setup2.Edit()
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*translate")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*zoom")')
+setup2.SendCommand(Command="(cx-use-window-id 1)(cx-set-camera '(0.00712305 0.0156584 0.0899127) '(0.00712305 0.0156584 0) '(5.82077e-009 1 9.31323e-010) 0.0359651 0.0359651 \"perspective\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*translate")')
+setup2.SendCommand(Command="(cx-use-window-id 1)(dolly-camera 0.0191091 0.00113133 0)(cx-use-window-id 1)(dolly-camera 0.0177422 0.000314257 0)(cx-use-window-id 1)(cx-use-window-id 1)(dolly-camera -0.010372 -0.000817074 0)")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*rollzoom")')
+setup2.SendCommand(Command="(cx-use-window-id 1)(cx-set-camera '(0.0336024 0.0150299 0.15969) '(0.0336024 0.0150299 -5.85351e-013) '(5.82077e-009 1 9.31323e-010) 0.0638759 0.0638759 \"perspective\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*translate")')
+setup2.SendCommand(Command='(cx-use-window-id 1)(dolly-camera 0.0205155 -0.00926512 0)(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|mass-flow-inlet (mass-flow-inlet)"))')
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|mass-flow-inlet (mass-flow-inlet)"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "mass-flow-inlet-6-1*PanelButtons*PushButton2(Cancel)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1 3))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-position \"Pathlines\" '(x 288 y 446))(cx-gui-do cx-set-position \"Pathlines\" '(x 287 y 447))(cx-gui-do cx-set-position \"Pathlines\" '(x 286 y 448))(cx-gui-do cx-set-position \"Pathlines\" '(x 286 y 449))(cx-gui-do cx-set-position \"Pathlines\" '(x 285 y 449))(cx-gui-do cx-set-position \"Pathlines\" '(x 285 y 450))(cx-gui-do cx-set-position \"Pathlines\" '(x 284 y 451))(cx-gui-do cx-set-position \"Pathlines\" '(x 283 y 452))(cx-gui-do cx-set-position \"Pathlines\" '(x 282 y 453))(cx-gui-do cx-set-position \"Pathlines\" '(x 281 y 454))(cx-gui-do cx-set-position \"Pathlines\" '(x 281 y 455))(cx-gui-do cx-set-position \"Pathlines\" '(x 280 y 455))(cx-gui-do cx-set-position \"Pathlines\" '(x 280 y 456))(cx-gui-do cx-set-position \"Pathlines\" '(x 279 y 456))(cx-gui-do cx-set-position \"Pathlines\" '(x 279 y 457))(cx-gui-do cx-set-position \"Pathlines\" '(x 279 y 458))(cx-gui-do cx-set-position \"Pathlines\" '(x 278 y 459))(cx-gui-do cx-set-position \"Pathlines\" '(x 278 y 460))(cx-gui-do cx-set-position \"Pathlines\" '(x 277 y 460))(cx-gui-do cx-set-position \"Pathlines\" '(x 277 y 461))(cx-gui-do cx-set-position \"Pathlines\" '(x 276 y 462))(cx-gui-do cx-set-position \"Pathlines\" '(x 276 y 463))(cx-gui-do cx-set-position \"Pathlines\" '(x 275 y 464))(cx-gui-do cx-set-position \"Pathlines\" '(x 274 y 465))(cx-gui-do cx-set-position \"Pathlines\" '(x 273 y 466))(cx-gui-do cx-set-position \"Pathlines\" '(x 273 y 467))(cx-gui-do cx-set-position \"Pathlines\" '(x 272 y 468))(cx-gui-do cx-set-position \"Pathlines\" '(x 271 y 470))(cx-gui-do cx-set-position \"Pathlines\" '(x 270 y 470))(cx-gui-do cx-set-position \"Pathlines\" '(x 270 y 472))(cx-gui-do cx-set-position \"Pathlines\" '(x 269 y 473))(cx-gui-do cx-set-position \"Pathlines\" '(x 268 y 473))(cx-gui-do cx-set-position \"Pathlines\" '(x 267 y 474))(cx-gui-do cx-set-position \"Pathlines\" '(x 267 y 475))(cx-gui-do cx-set-position \"Pathlines\" '(x 266 y 476))(cx-gui-do cx-set-position \"Pathlines\" '(x 265 y 477))(cx-gui-do cx-set-position \"Pathlines\" '(x 264 y 478))(cx-gui-do cx-set-position \"Pathlines\" '(x 263 y 479))(cx-gui-do cx-set-position \"Pathlines\" '(x 262 y 480))(cx-gui-do cx-set-position \"Pathlines\" '(x 261 y 481))(cx-gui-do cx-set-position \"Pathlines\" '(x 260 y 482))(cx-gui-do cx-set-position \"Pathlines\" '(x 259 y 483))(cx-gui-do cx-set-position \"Pathlines\" '(x 258 y 484))(cx-gui-do cx-set-position \"Pathlines\" '(x 257 y 485))(cx-gui-do cx-set-position \"Pathlines\" '(x 256 y 487))(cx-gui-do cx-set-position \"Pathlines\" '(x 255 y 488))(cx-gui-do cx-set-position \"Pathlines\" '(x 254 y 490))(cx-gui-do cx-set-position \"Pathlines\" '(x 253 y 491))(cx-gui-do cx-set-position \"Pathlines\" '(x 252 y 492))(cx-gui-do cx-set-position \"Pathlines\" '(x 251 y 494))(cx-gui-do cx-set-position \"Pathlines\" '(x 250 y 495))(cx-gui-do cx-set-position \"Pathlines\" '(x 249 y 496))(cx-gui-do cx-set-position \"Pathlines\" '(x 248 y 497))(cx-gui-do cx-set-position \"Pathlines\" '(x 246 y 498))(cx-gui-do cx-set-position \"Pathlines\" '(x 246 y 500))(cx-gui-do cx-set-position \"Pathlines\" '(x 244 y 501))(cx-gui-do cx-set-position \"Pathlines\" '(x 243 y 503))(cx-gui-do cx-set-position \"Pathlines\" '(x 243 y 504))(cx-gui-do cx-set-position \"Pathlines\" '(x 242 y 506))(cx-gui-do cx-set-position \"Pathlines\" '(x 240 y 507))(cx-gui-do cx-set-position \"Pathlines\" '(x 240 y 509))(cx-gui-do cx-set-position \"Pathlines\" '(x 239 y 510))(cx-gui-do cx-set-position \"Pathlines\" '(x 237 y 512))(cx-gui-do cx-set-position \"Pathlines\" '(x 236 y 513))(cx-gui-do cx-set-position \"Pathlines\" '(x 235 y 515))(cx-gui-do cx-set-position \"Pathlines\" '(x 234 y 516))(cx-gui-do cx-set-position \"Pathlines\" '(x 233 y 518))(cx-gui-do cx-set-position \"Pathlines\" '(x 232 y 519))(cx-gui-do cx-set-position \"Pathlines\" '(x 231 y 521))(cx-gui-do cx-set-position \"Pathlines\" '(x 231 y 522))(cx-gui-do cx-set-position \"Pathlines\" '(x 230 y 523))(cx-gui-do cx-set-position \"Pathlines\" '(x 228 y 524))(cx-gui-do cx-set-position \"Pathlines\" '(x 228 y 525))(cx-gui-do cx-set-position \"Pathlines\" '(x 226 y 526))(cx-gui-do cx-set-position \"Pathlines\" '(x 225 y 527))(cx-gui-do cx-set-position \"Pathlines\" '(x 224 y 528))(cx-gui-do cx-set-position \"Pathlines\" '(x 223 y 530))(cx-gui-do cx-set-position \"Pathlines\" '(x 222 y 530))(cx-gui-do cx-set-position \"Pathlines\" '(x 221 y 531))(cx-gui-do cx-set-position \"Pathlines\" '(x 220 y 532))(cx-gui-do cx-set-position \"Pathlines\" '(x 220 y 533))(cx-gui-do cx-set-position \"Pathlines\" '(x 219 y 533))(cx-gui-do cx-set-position \"Pathlines\" '(x 219 y 534))(cx-gui-do cx-set-position \"Pathlines\" '(x 218 y 535))(cx-gui-do cx-set-position \"Pathlines\" '(x 217 y 535))(cx-gui-do cx-set-position \"Pathlines\" '(x 216 y 536))(cx-gui-do cx-set-position \"Pathlines\" '(x 215 y 537))(cx-gui-do cx-set-position \"Pathlines\" '(x 214 y 538))(cx-gui-do cx-set-position \"Pathlines\" '(x 213 y 539))(cx-gui-do cx-set-position \"Pathlines\" '(x 212 y 540))(cx-gui-do cx-set-position \"Pathlines\" '(x 211 y 541))(cx-gui-do cx-set-position \"Pathlines\" '(x 210 y 542))(cx-gui-do cx-set-position \"Pathlines\" '(x 210 y 543))(cx-gui-do cx-set-position \"Pathlines\" '(x 209 y 544))(cx-gui-do cx-set-position \"Pathlines\" '(x 208 y 545))(cx-gui-do cx-set-position \"Pathlines\" '(x 207 y 546))(cx-gui-do cx-set-position \"Pathlines\" '(x 207 y 547))(cx-gui-do cx-set-position \"Pathlines\" '(x 206 y 547))(cx-gui-do cx-set-position \"Pathlines\" '(x 205 y 548))(cx-gui-do cx-set-position \"Pathlines\" '(x 204 y 549))(cx-gui-do cx-set-position \"Pathlines\" '(x 203 y 550))(cx-gui-do cx-set-position \"Pathlines\" '(x 202 y 550))(cx-gui-do cx-set-position \"Pathlines\" '(x 201 y 551))(cx-gui-do cx-set-position \"Pathlines\" '(x 200 y 552))(cx-gui-do cx-set-position \"Pathlines\" '(x 199 y 553))(cx-gui-do cx-set-position \"Pathlines\" '(x 198 y 553))(cx-gui-do cx-set-position \"Pathlines\" '(x 197 y 554))(cx-gui-do cx-set-position \"Pathlines\" '(x 196 y 555))(cx-gui-do cx-set-position \"Pathlines\" '(x 195 y 556))(cx-gui-do cx-set-position \"Pathlines\" '(x 194 y 557))(cx-gui-do cx-set-position \"Pathlines\" '(x 193 y 558))(cx-gui-do cx-set-position \"Pathlines\" '(x 192 y 559))(cx-gui-do cx-set-position \"Pathlines\" '(x 192 y 560))(cx-gui-do cx-set-position \"Pathlines\" '(x 191 y 560))(cx-gui-do cx-set-position \"Pathlines\" '(x 190 y 561))(cx-gui-do cx-set-position \"Pathlines\" '(x 189 y 562))(cx-gui-do cx-set-position \"Pathlines\" '(x 188 y 563))(cx-gui-do cx-set-position \"Pathlines\" '(x 187 y 563))(cx-gui-do cx-set-position \"Pathlines\" '(x 186 y 564))(cx-gui-do cx-set-position \"Pathlines\" '(x 186 y 565))(cx-gui-do cx-set-position \"Pathlines\" '(x 185 y 566))(cx-gui-do cx-set-position \"Pathlines\" '(x 184 y 566))(cx-gui-do cx-set-position \"Pathlines\" '(x 183 y 567))(cx-gui-do cx-set-position \"Pathlines\" '(x 182 y 568))(cx-gui-do cx-set-position \"Pathlines\" '(x 181 y 569))(cx-gui-do cx-set-position \"Pathlines\" '(x 180 y 570))(cx-gui-do cx-set-position \"Pathlines\" '(x 180 y 571))(cx-gui-do cx-set-position \"Pathlines\" '(x 179 y 572))(cx-gui-do cx-set-position \"Pathlines\" '(x 178 y 572))(cx-gui-do cx-set-position \"Pathlines\" '(x 177 y 573))(cx-gui-do cx-set-position \"Pathlines\" '(x 176 y 574))(cx-gui-do cx-set-position \"Pathlines\" '(x 175 y 574))(cx-gui-do cx-set-position \"Pathlines\" '(x 174 y 575))(cx-gui-do cx-set-position \"Pathlines\" '(x 173 y 576))(cx-gui-do cx-set-position \"Pathlines\" '(x 172 y 577))(cx-gui-do cx-set-position \"Pathlines\" '(x 171 y 577))(cx-gui-do cx-set-position \"Pathlines\" '(x 170 y 578))(cx-gui-do cx-set-position \"Pathlines\" '(x 169 y 579))(cx-gui-do cx-set-position \"Pathlines\" '(x 168 y 580))(cx-gui-do cx-set-position \"Pathlines\" '(x 167 y 581))(cx-gui-do cx-set-position \"Pathlines\" '(x 166 y 581))(cx-gui-do cx-set-position \"Pathlines\" '(x 166 y 582))(cx-gui-do cx-set-position \"Pathlines\" '(x 165 y 583))(cx-gui-do cx-set-position \"Pathlines\" '(x 164 y 583))(cx-gui-do cx-set-position \"Pathlines\" '(x 163 y 584))(cx-gui-do cx-set-position \"Pathlines\" '(x 162 y 584))(cx-gui-do cx-set-position \"Pathlines\" '(x 162 y 585))(cx-gui-do cx-set-position \"Pathlines\" '(x 161 y 585))(cx-gui-do cx-set-position \"Pathlines\" '(x 160 y 586))(cx-gui-do cx-set-position \"Pathlines\" '(x 159 y 587))(cx-gui-do cx-set-position \"Pathlines\" '(x 158 y 587))(cx-gui-do cx-set-position \"Pathlines\" '(x 157 y 588))(cx-gui-do cx-set-position \"Pathlines\" '(x 156 y 589))(cx-gui-do cx-set-position \"Pathlines\" '(x 155 y 590))(cx-gui-do cx-set-position \"Pathlines\" '(x 154 y 590))(cx-gui-do cx-set-position \"Pathlines\" '(x 153 y 591))(cx-gui-do cx-set-position \"Pathlines\" '(x 152 y 592))(cx-gui-do cx-set-position \"Pathlines\" '(x 151 y 592))(cx-gui-do cx-set-position \"Pathlines\" '(x 151 y 593))(cx-gui-do cx-set-position \"Pathlines\" '(x 150 y 593))(cx-gui-do cx-set-position \"Pathlines\" '(x 149 y 594))(cx-gui-do cx-set-position \"Pathlines\" '(x 148 y 595))(cx-gui-do cx-set-position \"Pathlines\" '(x 148 y 596))(cx-gui-do cx-set-position \"Pathlines\" '(x 147 y 596))(cx-gui-do cx-set-position \"Pathlines\" '(x 146 y 597))(cx-gui-do cx-set-position \"Pathlines\" '(x 145 y 597))(cx-gui-do cx-set-position \"Pathlines\" '(x 145 y 598))(cx-gui-do cx-set-position \"Pathlines\" '(x 144 y 598))(cx-gui-do cx-set-position \"Pathlines\" '(x 144 y 599))(cx-gui-do cx-set-position \"Pathlines\" '(x 143 y 599))(cx-gui-do cx-set-position \"Pathlines\" '(x 142 y 600))(cx-gui-do cx-set-position \"Pathlines\" '(x 141 y 600))(cx-gui-do cx-set-position \"Pathlines\" '(x 140 y 601))(cx-gui-do cx-set-position \"Pathlines\" '(x 139 y 601))(cx-gui-do cx-set-position \"Pathlines\" '(x 138 y 602))(cx-gui-do cx-set-position \"Pathlines\" '(x 138 y 603))(cx-gui-do cx-set-position \"Pathlines\" '(x 137 y 603))(cx-gui-do cx-set-position \"Pathlines\" '(x 136 y 604))(cx-gui-do cx-set-position \"Pathlines\" '(x 135 y 605))(cx-gui-do cx-set-position \"Pathlines\" '(x 134 y 606))(cx-gui-do cx-set-position \"Pathlines\" '(x 133 y 607))(cx-gui-do cx-set-position \"Pathlines\" '(x 132 y 607))(cx-gui-do cx-set-position \"Pathlines\" '(x 132 y 608))(cx-gui-do cx-set-position \"Pathlines\" '(x 131 y 608))(cx-gui-do cx-set-position \"Pathlines\" '(x 130 y 609))(cx-gui-do cx-set-position \"Pathlines\" '(x 130 y 610))(cx-gui-do cx-set-position \"Pathlines\" '(x 129 y 610))(cx-gui-do cx-set-position \"Pathlines\" '(x 129 y 611))(cx-gui-do cx-set-position \"Pathlines\" '(x 128 y 611))(cx-gui-do cx-set-position \"Pathlines\" '(x 127 y 612))(cx-gui-do cx-set-position \"Pathlines\" '(x 126 y 612))(cx-gui-do cx-set-position \"Pathlines\" '(x 125 y 613))(cx-gui-do cx-set-position \"Pathlines\" '(x 124 y 614))(cx-gui-do cx-set-position \"Pathlines\" '(x 123 y 614))(cx-gui-do cx-set-position \"Pathlines\" '(x 122 y 615))(cx-gui-do cx-set-position \"Pathlines\" '(x 121 y 615))(cx-gui-do cx-set-position \"Pathlines\" '(x 120 y 616))(cx-gui-do cx-set-position \"Pathlines\" '(x 119 y 616))(cx-gui-do cx-set-position \"Pathlines\" '(x 119 y 617))(cx-gui-do cx-set-position \"Pathlines\" '(x 118 y 617))(cx-gui-do cx-set-position \"Pathlines\" '(x 117 y 617))(cx-gui-do cx-set-position \"Pathlines\" '(x 117 y 618))(cx-gui-do cx-set-position \"Pathlines\" '(x 116 y 618))(cx-gui-do cx-set-position \"Pathlines\" '(x 115 y 618))(cx-gui-do cx-set-position \"Pathlines\" '(x 115 y 619))(cx-gui-do cx-set-position \"Pathlines\" '(x 114 y 620))(cx-gui-do cx-set-position \"Pathlines\" '(x 113 y 621))(cx-gui-do cx-set-position \"Pathlines\" '(x 112 y 622))(cx-gui-do cx-set-position \"Pathlines\" '(x 111 y 622))(cx-gui-do cx-set-position \"Pathlines\" '(x 111 y 623))(cx-gui-do cx-set-position \"Pathlines\" '(x 110 y 623))(cx-gui-do cx-set-position \"Pathlines\" '(x 109 y 624))(cx-gui-do cx-set-position \"Pathlines\" '(x 108 y 624))(cx-gui-do cx-set-position \"Pathlines\" '(x 108 y 625))(cx-gui-do cx-set-position \"Pathlines\" '(x 107 y 625))(cx-gui-do cx-set-position \"Pathlines\" '(x 107 y 626))(cx-gui-do cx-set-position \"Pathlines\" '(x 106 y 626))(cx-gui-do cx-set-position \"Pathlines\" '(x 105 y 626))(cx-gui-do cx-set-position \"Pathlines\" '(x 105 y 627))(cx-gui-do cx-set-position \"Pathlines\" '(x 104 y 627))(cx-gui-do cx-set-position \"Pathlines\" '(x 103 y 627))(cx-gui-do cx-set-position \"Pathlines\" '(x 103 y 628))(cx-gui-do cx-set-position \"Pathlines\" '(x 102 y 628))(cx-gui-do cx-set-position \"Pathlines\" '(x 102 y 629))")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup2.SendCommand(Command='(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+mesh2.Edit()
+mesh2.Exit()
+setupComponent2.Refresh()
+fluentLauncherSettings2.SetEntityProperties(Properties=Set(EnvPath={}))
+setup2.Edit()
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1 3))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 5))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command="(cx-use-window-id 1)(dolly-camera -0.00985891 -0.00220193 0)")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*zoom")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*translate")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*zoom")')
+setup2.SendCommand(Command="""(cx-use-window-id 1)(cx-set-camera '(0.016356 0.00813514 0.0834904) '(0.016356 0.00813514 0) '(3.72529e-009 1 0) 0.0333962 0.0333962 \"perspective\")
+(cx-gui-do cx-activate-item \"Pathlines*PanelButtons*PushButton2(Cancel)\")""")
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Contours"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Contours*New...")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-toggle-button "Contours*Frame2*Frame1(Options)*ToggleBox1(Options)*CheckButton1(Filled)" #f)(cx-gui-do cx-activate-item "Contours*Frame2*Frame1(Options)*ToggleBox1(Options)*CheckButton1(Filled)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton3(Compute)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Contours"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Contours|contour-1"))')
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Contours|contour-1"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Contours*Frame4*Frame3*List3(Surfaces)\" '( 3))(cx-gui-do cx-activate-item \"Contours*Frame4*Frame3*List3(Surfaces)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Contours*Frame4*Frame3*List3(Surfaces)\" '())(cx-gui-do cx-activate-item \"Contours*Frame4*Frame3*List3(Surfaces)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Contours*Frame4*Frame3*List3(Surfaces)\" '( 0))(cx-gui-do cx-activate-item \"Contours*Frame4*Frame3*List3(Surfaces)\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Contours*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*General Tools*write")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuWrite*Save Project")(cx-gui-do cx-set-toggle-button "Settings have changed!*Frame1*Table1*ToggleBox2*Use settings changes for current and future calculations" #f)(cx-gui-do cx-activate-item "Settings have changed!*Frame1*Table1*ToggleBox2*Use settings changes for current and future calculations")(cx-gui-do cx-activate-item "Settings have changed!*PanelButtons*PushButton1(OK)")')
+Save(Overwrite=True)
+setup2.SendCommand(Command='(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+fluentLauncherSettings2.SetEntityProperties(Properties=Set(EnvPath={}))
+setup2.Edit()
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|velocity-inlet (velocity-inlet)"))')
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|velocity-inlet (velocity-inlet)"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "velocity-inlet-5-1*PanelButtons*PushButton2(Cancel)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|mass-flow-inlet (mass-flow-inlet)"))')
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|mass-flow-inlet (mass-flow-inlet)"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "mass-flow-inlet-6-1*PanelButtons*PushButton2(Cancel)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Solution Initialization"))')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Frame1*Table1*ButtonBox10*PushButton1(More Settings)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)" 11)(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)" 12)(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)" 13)(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)" 14)(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)" 15)(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)" 16)(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)" 17)(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)" 18)(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)" 19)(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)" 20)(cx-gui-do cx-activate-item "Hybrid Initialization*Frame1*Frame1(General Settings)*Frame1*Table1*Frame1*Table1*IntegerEntry1(Number of Iterations)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Hybrid Initialization*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Calculate")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1 3))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-position \"Pathlines\" '(x 285 y 445))(cx-gui-do cx-set-position \"Pathlines\" '(x 285 y 446))(cx-gui-do cx-set-position \"Pathlines\" '(x 284 y 446))(cx-gui-do cx-set-position \"Pathlines\" '(x 283 y 447))(cx-gui-do cx-set-position \"Pathlines\" '(x 282 y 447))(cx-gui-do cx-set-position \"Pathlines\" '(x 282 y 448))(cx-gui-do cx-set-position \"Pathlines\" '(x 281 y 448))(cx-gui-do cx-set-position \"Pathlines\" '(x 280 y 448))(cx-gui-do cx-set-position \"Pathlines\" '(x 279 y 449))(cx-gui-do cx-set-position \"Pathlines\" '(x 278 y 449))(cx-gui-do cx-set-position \"Pathlines\" '(x 278 y 450))(cx-gui-do cx-set-position \"Pathlines\" '(x 277 y 450))(cx-gui-do cx-set-position \"Pathlines\" '(x 277 y 451))(cx-gui-do cx-set-position \"Pathlines\" '(x 276 y 451))(cx-gui-do cx-set-position \"Pathlines\" '(x 275 y 451))(cx-gui-do cx-set-position \"Pathlines\" '(x 275 y 452))(cx-gui-do cx-set-position \"Pathlines\" '(x 274 y 452))(cx-gui-do cx-set-position \"Pathlines\" '(x 273 y 453))(cx-gui-do cx-set-position \"Pathlines\" '(x 272 y 453))(cx-gui-do cx-set-position \"Pathlines\" '(x 271 y 453))(cx-gui-do cx-set-position \"Pathlines\" '(x 270 y 454))(cx-gui-do cx-set-position \"Pathlines\" '(x 269 y 454))(cx-gui-do cx-set-position \"Pathlines\" '(x 268 y 454))(cx-gui-do cx-set-position \"Pathlines\" '(x 268 y 455))(cx-gui-do cx-set-position \"Pathlines\" '(x 267 y 455))(cx-gui-do cx-set-position \"Pathlines\" '(x 267 y 456))(cx-gui-do cx-set-position \"Pathlines\" '(x 266 y 456))(cx-gui-do cx-set-position \"Pathlines\" '(x 265 y 456))(cx-gui-do cx-set-position \"Pathlines\" '(x 265 y 457))(cx-gui-do cx-set-position \"Pathlines\" '(x 264 y 457))(cx-gui-do cx-set-position \"Pathlines\" '(x 263 y 458))(cx-gui-do cx-set-position \"Pathlines\" '(x 262 y 458))(cx-gui-do cx-set-position \"Pathlines\" '(x 261 y 459))(cx-gui-do cx-set-position \"Pathlines\" '(x 260 y 460))(cx-gui-do cx-set-position \"Pathlines\" '(x 259 y 460))(cx-gui-do cx-set-position \"Pathlines\" '(x 258 y 461))(cx-gui-do cx-set-position \"Pathlines\" '(x 257 y 461))(cx-gui-do cx-set-position \"Pathlines\" '(x 257 y 462))(cx-gui-do cx-set-position \"Pathlines\" '(x 256 y 462))(cx-gui-do cx-set-position \"Pathlines\" '(x 255 y 463))(cx-gui-do cx-set-position \"Pathlines\" '(x 254 y 464))(cx-gui-do cx-set-position \"Pathlines\" '(x 253 y 464))(cx-gui-do cx-set-position \"Pathlines\" '(x 252 y 465))(cx-gui-do cx-set-position \"Pathlines\" '(x 251 y 465))(cx-gui-do cx-set-position \"Pathlines\" '(x 250 y 466))(cx-gui-do cx-set-position \"Pathlines\" '(x 249 y 466))(cx-gui-do cx-set-position \"Pathlines\" '(x 248 y 466))(cx-gui-do cx-set-position \"Pathlines\" '(x 247 y 467))(cx-gui-do cx-set-position \"Pathlines\" '(x 246 y 467))(cx-gui-do cx-set-position \"Pathlines\" '(x 245 y 467))(cx-gui-do cx-set-position \"Pathlines\" '(x 244 y 468))(cx-gui-do cx-set-position \"Pathlines\" '(x 243 y 468))(cx-gui-do cx-set-position \"Pathlines\" '(x 241 y 468))(cx-gui-do cx-set-position \"Pathlines\" '(x 240 y 469))(cx-gui-do cx-set-position \"Pathlines\" '(x 239 y 469))(cx-gui-do cx-set-position \"Pathlines\" '(x 238 y 470))(cx-gui-do cx-set-position \"Pathlines\" '(x 237 y 470))(cx-gui-do cx-set-position \"Pathlines\" '(x 235 y 470))(cx-gui-do cx-set-position \"Pathlines\" '(x 234 y 470))(cx-gui-do cx-set-position \"Pathlines\" '(x 233 y 470))(cx-gui-do cx-set-position \"Pathlines\" '(x 231 y 470))(cx-gui-do cx-set-position \"Pathlines\" '(x 230 y 470))(cx-gui-do cx-set-position \"Pathlines\" '(x 228 y 471))(cx-gui-do cx-set-position \"Pathlines\" '(x 227 y 471))(cx-gui-do cx-set-position \"Pathlines\" '(x 226 y 472))(cx-gui-do cx-set-position \"Pathlines\" '(x 225 y 472))(cx-gui-do cx-set-position \"Pathlines\" '(x 223 y 472))(cx-gui-do cx-set-position \"Pathlines\" '(x 222 y 473))(cx-gui-do cx-set-position \"Pathlines\" '(x 221 y 473))(cx-gui-do cx-set-position \"Pathlines\" '(x 220 y 474))(cx-gui-do cx-set-position \"Pathlines\" '(x 218 y 474))(cx-gui-do cx-set-position \"Pathlines\" '(x 217 y 474))(cx-gui-do cx-set-position \"Pathlines\" '(x 216 y 475))(cx-gui-do cx-set-position \"Pathlines\" '(x 214 y 475))(cx-gui-do cx-set-position \"Pathlines\" '(x 213 y 475))(cx-gui-do cx-set-position \"Pathlines\" '(x 211 y 475))(cx-gui-do cx-set-position \"Pathlines\" '(x 210 y 476))(cx-gui-do cx-set-position \"Pathlines\" '(x 208 y 476))(cx-gui-do cx-set-position \"Pathlines\" '(x 207 y 476))(cx-gui-do cx-set-position \"Pathlines\" '(x 205 y 477))(cx-gui-do cx-set-position \"Pathlines\" '(x 204 y 477))(cx-gui-do cx-set-position \"Pathlines\" '(x 202 y 477))(cx-gui-do cx-set-position \"Pathlines\" '(x 201 y 478))(cx-gui-do cx-set-position \"Pathlines\" '(x 199 y 478))(cx-gui-do cx-set-position \"Pathlines\" '(x 198 y 479))(cx-gui-do cx-set-position \"Pathlines\" '(x 196 y 479))(cx-gui-do cx-set-position \"Pathlines\" '(x 195 y 480))(cx-gui-do cx-set-position \"Pathlines\" '(x 193 y 480))(cx-gui-do cx-set-position \"Pathlines\" '(x 192 y 481))(cx-gui-do cx-set-position \"Pathlines\" '(x 190 y 481))(cx-gui-do cx-set-position \"Pathlines\" '(x 189 y 481))(cx-gui-do cx-set-position \"Pathlines\" '(x 188 y 482))(cx-gui-do cx-set-position \"Pathlines\" '(x 186 y 482))(cx-gui-do cx-set-position \"Pathlines\" '(x 184 y 482))(cx-gui-do cx-set-position \"Pathlines\" '(x 183 y 483))(cx-gui-do cx-set-position \"Pathlines\" '(x 181 y 483))(cx-gui-do cx-set-position \"Pathlines\" '(x 179 y 484))(cx-gui-do cx-set-position \"Pathlines\" '(x 178 y 484))(cx-gui-do cx-set-position \"Pathlines\" '(x 177 y 484))(cx-gui-do cx-set-position \"Pathlines\" '(x 175 y 484))(cx-gui-do cx-set-position \"Pathlines\" '(x 173 y 484))(cx-gui-do cx-set-position \"Pathlines\" '(x 172 y 485))(cx-gui-do cx-set-position \"Pathlines\" '(x 171 y 485))(cx-gui-do cx-set-position \"Pathlines\" '(x 169 y 485))(cx-gui-do cx-set-position \"Pathlines\" '(x 168 y 486))(cx-gui-do cx-set-position \"Pathlines\" '(x 166 y 486))(cx-gui-do cx-set-position \"Pathlines\" '(x 165 y 486))(cx-gui-do cx-set-position \"Pathlines\" '(x 164 y 487))(cx-gui-do cx-set-position \"Pathlines\" '(x 162 y 487))(cx-gui-do cx-set-position \"Pathlines\" '(x 161 y 488))(cx-gui-do cx-set-position \"Pathlines\" '(x 159 y 488))(cx-gui-do cx-set-position \"Pathlines\" '(x 158 y 489))(cx-gui-do cx-set-position \"Pathlines\" '(x 156 y 489))(cx-gui-do cx-set-position \"Pathlines\" '(x 155 y 489))(cx-gui-do cx-set-position \"Pathlines\" '(x 153 y 490))(cx-gui-do cx-set-position \"Pathlines\" '(x 152 y 490))(cx-gui-do cx-set-position \"Pathlines\" '(x 150 y 490))(cx-gui-do cx-set-position \"Pathlines\" '(x 149 y 491))(cx-gui-do cx-set-position \"Pathlines\" '(x 148 y 491))(cx-gui-do cx-set-position \"Pathlines\" '(x 146 y 491))(cx-gui-do cx-set-position \"Pathlines\" '(x 145 y 492))(cx-gui-do cx-set-position \"Pathlines\" '(x 144 y 492))(cx-gui-do cx-set-position \"Pathlines\" '(x 143 y 492))(cx-gui-do cx-set-position \"Pathlines\" '(x 141 y 493))(cx-gui-do cx-set-position \"Pathlines\" '(x 140 y 493))(cx-gui-do cx-set-position \"Pathlines\" '(x 139 y 493))(cx-gui-do cx-set-position \"Pathlines\" '(x 138 y 494))(cx-gui-do cx-set-position \"Pathlines\" '(x 137 y 494))(cx-gui-do cx-set-position \"Pathlines\" '(x 135 y 495))(cx-gui-do cx-set-position \"Pathlines\" '(x 134 y 496))(cx-gui-do cx-set-position \"Pathlines\" '(x 133 y 496))(cx-gui-do cx-set-position \"Pathlines\" '(x 132 y 496))(cx-gui-do cx-set-position \"Pathlines\" '(x 131 y 497))(cx-gui-do cx-set-position \"Pathlines\" '(x 130 y 498))(cx-gui-do cx-set-position \"Pathlines\" '(x 129 y 498))(cx-gui-do cx-set-position \"Pathlines\" '(x 127 y 499))(cx-gui-do cx-set-position \"Pathlines\" '(x 126 y 499))(cx-gui-do cx-set-position \"Pathlines\" '(x 125 y 500))(cx-gui-do cx-set-position \"Pathlines\" '(x 124 y 501))(cx-gui-do cx-set-position \"Pathlines\" '(x 123 y 501))(cx-gui-do cx-set-position \"Pathlines\" '(x 122 y 502))(cx-gui-do cx-set-position \"Pathlines\" '(x 121 y 502))(cx-gui-do cx-set-position \"Pathlines\" '(x 120 y 503))(cx-gui-do cx-set-position \"Pathlines\" '(x 119 y 503))(cx-gui-do cx-set-position \"Pathlines\" '(x 118 y 504))(cx-gui-do cx-set-position \"Pathlines\" '(x 117 y 505))(cx-gui-do cx-set-position \"Pathlines\" '(x 116 y 505))(cx-gui-do cx-set-position \"Pathlines\" '(x 116 y 506))(cx-gui-do cx-set-position \"Pathlines\" '(x 115 y 506))(cx-gui-do cx-set-position \"Pathlines\" '(x 114 y 507))(cx-gui-do cx-set-position \"Pathlines\" '(x 113 y 507))(cx-gui-do cx-set-position \"Pathlines\" '(x 112 y 508))(cx-gui-do cx-set-position \"Pathlines\" '(x 111 y 508))(cx-gui-do cx-set-position \"Pathlines\" '(x 110 y 509))(cx-gui-do cx-set-position \"Pathlines\" '(x 109 y 509))(cx-gui-do cx-set-position \"Pathlines\" '(x 108 y 509))(cx-gui-do cx-set-position \"Pathlines\" '(x 107 y 510))(cx-gui-do cx-set-position \"Pathlines\" '(x 106 y 511))(cx-gui-do cx-set-position \"Pathlines\" '(x 105 y 511))(cx-gui-do cx-set-position \"Pathlines\" '(x 104 y 512))(cx-gui-do cx-set-position \"Pathlines\" '(x 103 y 513))(cx-gui-do cx-set-position \"Pathlines\" '(x 102 y 513))(cx-gui-do cx-set-position \"Pathlines\" '(x 101 y 513))(cx-gui-do cx-set-position \"Pathlines\" '(x 100 y 514))(cx-gui-do cx-set-position \"Pathlines\" '(x 99 y 514))(cx-gui-do cx-set-position \"Pathlines\" '(x 98 y 515))(cx-gui-do cx-set-position \"Pathlines\" '(x 97 y 515))(cx-gui-do cx-set-position \"Pathlines\" '(x 97 y 516))(cx-gui-do cx-set-position \"Pathlines\" '(x 96 y 516))(cx-gui-do cx-set-position \"Pathlines\" '(x 95 y 517))(cx-gui-do cx-set-position \"Pathlines\" '(x 94 y 517))(cx-gui-do cx-set-position \"Pathlines\" '(x 93 y 517))(cx-gui-do cx-set-position \"Pathlines\" '(x 93 y 518))(cx-gui-do cx-set-position \"Pathlines\" '(x 92 y 518))(cx-gui-do cx-set-position \"Pathlines\" '(x 91 y 518))(cx-gui-do cx-set-position \"Pathlines\" '(x 91 y 519))(cx-gui-do cx-set-position \"Pathlines\" '(x 90 y 519))(cx-gui-do cx-set-position \"Pathlines\" '(x 90 y 520))(cx-gui-do cx-set-position \"Pathlines\" '(x 89 y 520))(cx-gui-do cx-set-position \"Pathlines\" '(x 88 y 520))(cx-gui-do cx-set-position \"Pathlines\" '(x 88 y 521))(cx-gui-do cx-set-position \"Pathlines\" '(x 87 y 521))(cx-gui-do cx-set-position \"Pathlines\" '(x 86 y 521))(cx-gui-do cx-set-position \"Pathlines\" '(x 86 y 522))(cx-gui-do cx-set-position \"Pathlines\" '(x 85 y 522))(cx-gui-do cx-set-position \"Pathlines\" '(x 85 y 523))(cx-gui-do cx-set-position \"Pathlines\" '(x 84 y 523))(cx-gui-do cx-set-position \"Pathlines\" '(x 84 y 524))(cx-gui-do cx-set-position \"Pathlines\" '(x 83 y 524))(cx-gui-do cx-set-position \"Pathlines\" '(x 82 y 525))(cx-gui-do cx-set-position \"Pathlines\" '(x 81 y 526))(cx-gui-do cx-set-position \"Pathlines\" '(x 80 y 527))(cx-gui-do cx-set-position \"Pathlines\" '(x 79 y 527))(cx-gui-do cx-set-position \"Pathlines\" '(x 78 y 527))(cx-gui-do cx-set-position \"Pathlines\" '(x 78 y 528))(cx-gui-do cx-set-position \"Pathlines\" '(x 78 y 529))(cx-gui-do cx-set-position \"Pathlines\" '(x 77 y 529))(cx-gui-do cx-set-position \"Pathlines\" '(x 76 y 529))(cx-gui-do cx-set-position \"Pathlines\" '(x 76 y 530))(cx-gui-do cx-set-position \"Pathlines\" '(x 75 y 530))(cx-gui-do cx-set-position \"Pathlines\" '(x 75 y 531))(cx-gui-do cx-set-position \"Pathlines\" '(x 74 y 531))(cx-gui-do cx-set-position \"Pathlines\" '(x 74 y 532))(cx-gui-do cx-set-position \"Pathlines\" '(x 73 y 532))(cx-gui-do cx-set-position \"Pathlines\" '(x 72 y 533))(cx-gui-do cx-set-position \"Pathlines\" '(x 72 y 534))(cx-gui-do cx-set-position \"Pathlines\" '(x 72 y 535))(cx-gui-do cx-set-position \"Pathlines\" '(x 71 y 535))(cx-gui-do cx-set-position \"Pathlines\" '(x 71 y 536))(cx-gui-do cx-set-position \"Pathlines\" '(x 71 y 537))(cx-gui-do cx-set-position \"Pathlines\" '(x 70 y 537))(cx-gui-do cx-set-position \"Pathlines\" '(x 70 y 538))(cx-gui-do cx-set-position \"Pathlines\" '(x 69 y 538))(cx-gui-do cx-set-position \"Pathlines\" '(x 69 y 539))(cx-gui-do cx-set-position \"Pathlines\" '(x 68 y 539))(cx-gui-do cx-set-position \"Pathlines\" '(x 68 y 540))(cx-gui-do cx-set-position \"Pathlines\" '(x 68 y 541))(cx-gui-do cx-set-position \"Pathlines\" '(x 67 y 541))(cx-gui-do cx-set-position \"Pathlines\" '(x 67 y 542))(cx-gui-do cx-set-position \"Pathlines\" '(x 67 y 543))(cx-gui-do cx-set-position \"Pathlines\" '(x 67 y 544))(cx-gui-do cx-set-position \"Pathlines\" '(x 66 y 544))(cx-gui-do cx-set-position \"Pathlines\" '(x 66 y 545))(cx-gui-do cx-set-position \"Pathlines\" '(x 65 y 545))(cx-gui-do cx-set-position \"Pathlines\" '(x 65 y 546))(cx-gui-do cx-set-position \"Pathlines\" '(x 64 y 546))(cx-gui-do cx-set-position \"Pathlines\" '(x 64 y 547))(cx-gui-do cx-set-position \"Pathlines\" '(x 64 y 548))(cx-gui-do cx-set-position \"Pathlines\" '(x 64 y 549))(cx-gui-do cx-set-position \"Pathlines\" '(x 63 y 549))(cx-gui-do cx-set-position \"Pathlines\" '(x 63 y 550))(cx-gui-do cx-set-position \"Pathlines\" '(x 63 y 551))(cx-gui-do cx-set-position \"Pathlines\" '(x 63 y 552))(cx-gui-do cx-set-position \"Pathlines\" '(x 62 y 552))(cx-gui-do cx-set-position \"Pathlines\" '(x 62 y 553))(cx-gui-do cx-set-position \"Pathlines\" '(x 61 y 553))(cx-gui-do cx-set-position \"Pathlines\" '(x 61 y 554))(cx-gui-do cx-set-position \"Pathlines\" '(x 61 y 555))(cx-gui-do cx-set-position \"Pathlines\" '(x 61 y 556))(cx-gui-do cx-set-position \"Pathlines\" '(x 60 y 556))(cx-gui-do cx-set-position \"Pathlines\" '(x 60 y 557))(cx-gui-do cx-set-position \"Pathlines\" '(x 60 y 558))")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*zoom")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*rollzoom")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*zoom")')
+setup2.SendCommand(Command="(cx-use-window-id 1)(cx-set-camera '(0.0478768 0.00648369 0.11815) '(0.0478768 0.00648369 0) '(7.17409e-009 1 0) 0.0472602 0.0472602 \"perspective\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList2\" '( 2))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList2\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 3))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList2\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList2\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList2\" '( 2))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList2\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*rollzoom")')
+setup2.SendCommand(Command="""(cx-use-window-id 1)(cx-set-camera '(0.0478768 0.00648369 0.155767) '(0.0478768 0.00648369 0) '(7.17409e-009 1 0) 0.0623069 0.0623069 \"perspective\")
+(cx-use-window-id 1)(cx-set-camera '(0.0478768 0.00648369 0.26684) '(0.0478768 0.00648369 0) '(7.17409e-009 1 0) 0.106736 0.106736 \"perspective\")""")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*translate")')
+setup2.SendCommand(Command='(cx-use-window-id 1)(dolly-camera 0.0653016 0.000186526 0)(cx-use-window-id 1)(dolly-camera -0.0187712 -0.0117513 0)(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Surface Integrals"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Surface Integrals*Edit...")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Surface Integrals*Frame1*DropDownList1(Report Type)\" '( 9))(cx-gui-do cx-activate-item \"Surface Integrals*Frame1*DropDownList1(Report Type)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Surface Integrals*Frame2*Table2*DropDownList1(Field Variable)\" '( 5))(cx-gui-do cx-activate-item \"Surface Integrals*Frame2*Table2*DropDownList1(Field Variable)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Surface Integrals*Frame3*List3(Surfaces)\" '( 2))(cx-gui-do cx-activate-item \"Surface Integrals*Frame3*List3(Surfaces)\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton1(OK)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton1(Write)")(cx-gui-do cx-activate-item "Select File*Cancel")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton2(Cancel)")')
+setup2.SendCommand(Command='(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+system4 = system3.Duplicate(
+    ComponentsToShare=[],
+    RelativeTo=system3)
+system4.DisplayText = "Bullet"
+geometry3 = system4.GetContainer(ComponentName="Geometry")
+geometry3.Edit()
+geometry3.Exit()
+meshComponent3 = system4.GetComponent(Name="Mesh")
+meshComponent3.Refresh()
+mesh3 = system4.GetContainer(ComponentName="Mesh")
+mesh3.Edit()
+mesh3.Exit()
+setupComponent3 = system4.GetComponent(Name="Setup")
+setupComponent3.Refresh()
+setup3 = system4.GetContainer(ComponentName="Setup")
+fluentLauncherSettings3 = setup3.GetFluentLauncherSettings()
+fluentLauncherSettings3.SetEntityProperties(Properties=Set(EnvPath={}))
+setup3.Edit()
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*zoom")')
+setup3.SendCommand(Command="(cx-use-window-id 1)(cx-set-camera '(0.105887 0.00685068 0.247255) '(0.105887 0.00685068 0) '(-4.36376e-008 1 4.65661e-010) 0.0989021 0.0989021 \"perspective\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*translate")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|mass-flow-inlet (mass-flow-inlet)"))')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|mass-flow-inlet (mass-flow-inlet)"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "mass-flow-inlet-6-1*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1 3))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command="(cx-gui-do cx-activate-item \"Pathlines*Frame5*PushButton2(Attributes)\")(cx-gui-do cx-set-real-entry-list \"Path Style Attributes*RealEntry1(Line Width)\" '( 0.5))(cx-gui-do cx-activate-item \"Path Style Attributes*PanelButtons*PushButton1(OK)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-real-entry-list \"Pathlines*RealEntry14(Step Size)\" '( 0.005))(cx-gui-do cx-activate-item \"Pathlines*PanelButtons*PushButton1(OK)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(Compute)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Pathlines*IntegerEntry16(Steps)" 600)(cx-gui-do cx-activate-item "Pathlines*IntegerEntry16(Steps)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*IntegerEntry16(Steps)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-toggle-button "Pathlines*Frame1(Options)*ToggleBox1(Options)*CheckButton6(Accuracy Control)" #f)(cx-gui-do cx-activate-item "Pathlines*Frame1(Options)*ToggleBox1(Options)*CheckButton6(Accuracy Control)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-toggle-button "Pathlines*Frame1(Options)*ToggleBox1(Options)*CheckButton6(Accuracy Control)" #t)(cx-gui-do cx-activate-item "Pathlines*Frame1(Options)*ToggleBox1(Options)*CheckButton6(Accuracy Control)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-real-entry-list \"Pathlines*RealEntry14(Step Size)\" '( 0.001))(cx-gui-do cx-activate-item \"Pathlines*PanelButtons*PushButton1(OK)\")")
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 6))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Surface Integrals"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Reports|Surface Integrals"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Surface Integrals*Edit...")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Surface Integrals*Frame1*DropDownList1(Report Type)\" '( 9))(cx-gui-do cx-activate-item \"Surface Integrals*Frame1*DropDownList1(Report Type)\")")
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Surface Integrals*Frame2*Table2*DropDownList1(Field Variable)\" '( 5))(cx-gui-do cx-activate-item \"Surface Integrals*Frame2*Table2*DropDownList1(Field Variable)\")")
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Surface Integrals*Frame3*List3(Surfaces)\" '( 2))(cx-gui-do cx-activate-item \"Surface Integrals*Frame3*List3(Surfaces)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Surface Integrals*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList2\" '( 2))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList2\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+results1 = system1.GetContainer(ComponentName="Results")
+results1.Edit()
+results1.SendCommand(Command="""VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Turbo Initialisation View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Turbo Initialisation View, viewport=1""")
+results1.SendCommand(Command="""VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Turbo Initialisation View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Turbo Initialisation View, viewport=1""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Synchronize Visibility = false
+END""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Maximized Viewport = -1
+  Synchronize Camera = false
+  Synchronize Visibility = true
+  View Length Units = m
+  Viewer Camera Z = -5
+  Viewer Eye Point = Normal
+  Viewer Eye Separation = 5
+  Viewport 1 View = View 1
+  Viewport 2 View = View 2
+  Viewport 3 View = View 3
+  Viewport 4 View = View 4
+  Viewport Layout = No Split
+  X Split = 0.5
+  Y Split = 0.5
+END""")
+results1.SendCommand(Command="> autolegend plot=/CONTOUR:Temperature Contours, view=VIEW:View 1")
+results1.SendCommand(Command="""CONTOUR:Temperature Contours
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Temperature
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = symmetry 1
+Max = 0.0 [K]
+Min = 0.0 [K]
+Number of Contours = 11
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [K],1 [K]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /CONTOUR:Temperature Contours, view=/VIEW:View 1""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.1, 0.009, 7.27596e-012
+    Scale = 11.1062
+    Pan = 0, 0
+    Rotation Quaternion = 0, 0, 0, 1
+    
+  END
+
+END
+
+> update
+CONTOUR:Temperature Contours
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Temperature
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = symmetry 1
+Max = 0.0 [K]
+Min = 0.0 [K]
+Number of Contours = 20
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [K],1 [K]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""TABLE: Table 1
+  Table Exists = True
+END""")
+results1.SendCommand(Command="""CALCULATOR:
+  Function = area
+  Location = 
+  Case Name = Case Shelf
+END""")
+results1.SendCommand(Command="""CALCULATOR:
+  Function = area
+  Location = 
+  Case Name = Case Shelf
+END""")
+results1.SendCommand(Command="""TABLE:Table 1
+  TABLE CELLS:
+     = 
+  END
+END""")
+results1.SendCommand(Command="""TABLE:Table 1
+  TABLE CELLS:
+     = 
+  END
+END""")
+results1.SendCommand(Command="""TABLE:Table 1
+  TABLE CELLS:
+    A1 = 
+  END
+END""")
+results1.SendCommand(Command="""TABLE:Table 1
+  TABLE CELLS:
+    A1 = 
+  END
+END""")
+results1.Exit()
+results2 = system3.GetContainer(ComponentName="Results")
+results2.Edit()
+results2.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.1, 0.009, 0
+    Scale = 15.6493
+    Pan = 0, 0
+    Rotation Quaternion = 0.279848, -0.364705, -0.115917, 0.880476
+    
+  END
+
+END
+
+> update
+> autolegend plot=/CONTOUR:Temperature Contours, view=VIEW:View 1""")
+results2.SendCommand(Command="""CONTOUR:Temperature Contours
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Temperature
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = symmetry 1
+Max = 0.0 [K]
+Min = 0.0 [K]
+Number of Contours = 20
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [K],1 [K]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results2.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /CONTOUR:Temperature Contours, view=/VIEW:View 1""")
+results2.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.1, 0.009, 1.45519e-011
+    Scale = 11.1062
+    Pan = 0, 0
+    Rotation Quaternion = 0, 0, 0, 1
+    
+  END
+
+END
+
+> update
+HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = D:/Individual Project (Uni stuff annex)/Year-3-IP/Combustion Chamber/Flameholders/Full Test/fulltest_files/user_files/Arrow.png
+Hardcopy Format = png
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Screen Capture = Off
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results2.Exit()
+results1.Edit()
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = D:/Individual Project (Uni stuff annex)/Year-3-IP/Combustion Chamber/Flameholders/Full Test/fulltest_files/user_files/Shelf.png
+Hardcopy Format = png
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Screen Capture = Off
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.Exit()
+results3 = system4.GetContainer(ComponentName="Results")
+results3.Edit()
+results3.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.1, 0.009, 0
+    Scale = 15.6571
+    Pan = 0, 0
+    Rotation Quaternion = 0.279848, -0.364705, -0.115917, 0.880476
+    
+  END
+
+END
+
+> update
+> autolegend plot=/CONTOUR:Temperature Contours, view=VIEW:View 1""")
+results3.SendCommand(Command="""CONTOUR:Temperature Contours
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Temperature
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = symmetry 1
+Max = 0.0 [K]
+Min = 0.0 [K]
+Number of Contours = 20
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [K],1 [K]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results3.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /CONTOUR:Temperature Contours, view=/VIEW:View 1""")
+results3.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.1, 0.009, 7.27596e-012
+    Scale = 11.1062
+    Pan = 0, 0
+    Rotation Quaternion = 0, 0, 0, 1
+    
+  END
+
+END
+
+> update
+HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = D:/Individual Project (Uni stuff annex)/Year-3-IP/Combustion Chamber/Flameholders/Full Test/fulltest_files/user_files/Bullet.png
+Hardcopy Format = png
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Screen Capture = Off
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results3.Exit()
+results1.Edit()
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.1, 0.009, 7.27596e-012
+    Scale = 11.1062
+    Pan = -0.00158273, -0.0328857
+    Rotation Quaternion = 0, 0, 0, 1
+    
+  END
+
+END
+
+> update
+HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = D:/Individual Project (Uni stuff annex)/Year-3-IP/Combustion Chamber/Flameholders/Full Test/fulltest_files/user_files/Shelf.png
+Hardcopy Format = png
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Screen Capture = Off
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.Exit()
+results2.Edit()
+results2.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.1, 0.009, 1.45519e-011
+    Scale = 11.1062
+    Pan = 0.000351718, -0.024972
+    Rotation Quaternion = 0, 0, 0, 1
+    
+  END
+
+END
+
+> update
+HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = D:/Individual Project (Uni stuff annex)/Year-3-IP/Combustion Chamber/Flameholders/Full Test/fulltest_files/user_files/Arrow.png
+Hardcopy Format = png
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Screen Capture = Off
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results2.Exit()
+results3.Edit()
+results3.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.1, 0.009, 7.27596e-012
+    Scale = 11.1062
+    Pan = 0.000175859, -0.0263789
+    Rotation Quaternion = 0, 0, 0, 1
+    
+  END
+
+END
+
+> update
+HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = D:/Individual Project (Uni stuff annex)/Year-3-IP/Combustion Chamber/Flameholders/Full Test/fulltest_files/user_files/Bullet.png
+Hardcopy Format = png
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Screen Capture = Off
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results3.Exit()
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(EnvPath={}))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-set-integer-entry "Run Calculation*Frame1*Table1*IntegerEntry9(Number of Iterations)" 10000)(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*IntegerEntry9(Number of Iterations)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*PushButton21(Calculate)")(cx-gui-do cx-activate-item "Question*OK")(cx-gui-do cx-activate-item "Working*Cancel")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|General"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-toggle-button "General*Frame1*Table1*Frame2(Solver)*Table2(Solver)*ToggleBox5(Time)*Transient" #f)(cx-gui-do cx-activate-item "General*Frame1*Table1*Frame2(Solver)*Table2(Solver)*ToggleBox5(Time)*Transient")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-set-integer-entry "Run Calculation*Frame1*Table1*Frame6*Table6*IntegerEntry2(Number of Time Steps)" 50)(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*Frame6*Table6*IntegerEntry2(Number of Time Steps)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-real-entry-list \"Run Calculation*Frame1*Table1*Frame6*Table6*RealEntry1(Time Step Size)\" '( 0.01))(cx-gui-do cx-activate-item \"Run Calculation*Frame1*Table1*Frame6*Table6*RealEntry1(Time Step Size)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Run Calculation*Frame1*Table1*IntegerEntry9(Number of Iterations)" 100)(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*IntegerEntry9(Number of Iterations)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*PushButton21(Calculate)")(cx-gui-do cx-set-toggle-button "Settings have changed!*Frame1*Table1*ToggleBox2*Use settings changes for current and future calculations" #f)(cx-gui-do cx-activate-item "Settings have changed!*Frame1*Table1*ToggleBox2*Use settings changes for current and future calculations")(cx-gui-do cx-activate-item "Settings have changed!*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Working*Cancel")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1 3))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*Frame5*PushButton2(Attributes)")(cx-gui-do cx-activate-item "Path Style Attributes*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+results1.Edit()
+results1.SendCommand(Command="> autolegend plot=/CONTOUR:Temperature Contours, view=VIEW:View 1")
+results1.SendCommand(Command=r"> load case=Case Shelf, filename=D:\Individual Project (Uni stuff annex)\Year-3-IP\Combustion Chamber\Flameholders\Full Test\fulltest_files\dp0\FFF\Fluent\FFF.1-2-00050.dat.gz, timestep=0")
+results1.SendCommand(Command=r"> load case=Case Shelf, filename=D:\Individual Project (Uni stuff annex)\Year-3-IP\Combustion Chamber\Flameholders\Full Test\fulltest_files\dp0\FFF\Fluent\FFF.1-2-00050.dat.gz, timestep=50")
+results1.Exit()
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(EnvPath={}))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup"))(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+solution1 = system1.GetContainer(ComponentName="Solution")
+solution1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list ))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1 3))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList2\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList2\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+solution2 = system3.GetContainer(ComponentName="Solution")
+solution2.Edit()
+setup2.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list ))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList2\" '( 2))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList2\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup2.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1 3))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(Compute)")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup2.SendCommand(Command='(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup2.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+solution1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list ))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1 3))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList2\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList2\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(Compute)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+solution3 = system4.GetContainer(ComponentName="Solution")
+solution3.Edit()
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list ))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 1 3))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 4))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList2\" '( 2))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList2\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|General"))')
+setup3.SendCommand(Command='(cx-gui-do cx-set-toggle-button "General*Frame1*Table1*Frame2(Solver)*Table2(Solver)*ToggleBox5(Time)*Transient" #f)(cx-gui-do cx-activate-item "General*Frame1*Table1*Frame2(Solver)*Table2(Solver)*ToggleBox5(Time)*Transient")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-set-integer-entry "Run Calculation*Frame1*Table1*Frame6*Table6*IntegerEntry2(Number of Time Steps)" 10)(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*Frame6*Table6*IntegerEntry2(Number of Time Steps)")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Run Calculation*Frame1*Table1*Frame5*Table5*DropDownList1(Time Stepping Method)\" '( 1))(cx-gui-do cx-activate-item \"Run Calculation*Frame1*Table1*Frame5*Table5*DropDownList1(Time Stepping Method)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*Frame5*Table5*PushButton2(Settings)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Adaptive Time Step Settings*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-real-entry-list \"Run Calculation*Frame1*Table1*Frame6*Table6*RealEntry1(Time Step Size)\" '( 0.05))(cx-gui-do cx-activate-item \"Run Calculation*Frame1*Table1*Frame6*Table6*RealEntry1(Time Step Size)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-set-integer-entry "Run Calculation*Frame1*Table1*IntegerEntry9(Number of Iterations)" 100)(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*IntegerEntry9(Number of Iterations)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*PushButton21(Calculate)")(cx-gui-do cx-set-toggle-button "Settings have changed!*Frame1*Table1*ToggleBox2*Use settings changes for current and future calculations" #f)(cx-gui-do cx-activate-item "Settings have changed!*Frame1*Table1*ToggleBox2*Use settings changes for current and future calculations")(cx-gui-do cx-activate-item "Settings have changed!*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Working*Cancel")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")(cx-gui-do cx-activate-item "Question*OK")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models"))')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Models*Frame1*Table1*Frame1*List1(Models)\" '( 2))(cx-gui-do cx-activate-item \"Models*Frame1*Table1*Frame1*List1(Models)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Models*Frame1*Table1*PushButton2(Edit)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-toggle-button "Viscous Model*Frame1*Table1*Frame1(Model)*ToggleBox1(Model)*k-omega (2 eqn)" #f)(cx-gui-do cx-activate-item "Viscous Model*Frame1*Table1*Frame1(Model)*ToggleBox1(Model)*k-omega (2 eqn)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Viscous Model*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")(cx-gui-do cx-activate-item "Question*OK")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*Pointer Tools*zoom")')
+setup3.SendCommand(Command="""(cx-use-window-id 1)(cx-set-camera '(0.0893649 0.00776816 0.240213) '(0.0893649 0.00776816 0) '(-1.01318e-009 1 0) 0.0960853 0.0960853 \"perspective\")
+(cx-gui-do cx-activate-item \"Pathlines*PanelButtons*PushButton2(Cancel)\")""")
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|velocity-inlet (velocity-inlet)"))')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions|velocity-inlet (velocity-inlet)"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "velocity-inlet-5-1*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|General"))')
+setup3.SendCommand(Command='(cx-gui-do cx-set-toggle-button "General*Frame1*Table1*Frame2(Solver)*Table2(Solver)*ToggleBox5(Time)*Steady" #f)(cx-gui-do cx-activate-item "General*Frame1*Table1*Frame2(Solver)*Table2(Solver)*ToggleBox5(Time)*Steady")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*PushButton21(Calculate)")(cx-gui-do cx-set-toggle-button "Settings have changed!*Frame1*Table1*ToggleBox2*Use settings changes for current and future calculations" #f)(cx-gui-do cx-activate-item "Settings have changed!*Frame1*Table1*ToggleBox2*Use settings changes for current and future calculations")(cx-gui-do cx-activate-item "Settings have changed!*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")(cx-gui-do cx-activate-item "Question*OK")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Models"))')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Models*Frame1*Table1*Frame1*List1(Models)\" '( 2))(cx-gui-do cx-activate-item \"Models*Frame1*Table1*Frame1*List1(Models)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Models*Frame1*Table1*PushButton2(Edit)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-toggle-button "Viscous Model*Frame1*Table1*Frame1(Model)*ToggleBox1(Model)*Transition k-kl-omega (3 eqn)" #f)(cx-gui-do cx-activate-item "Viscous Model*Frame1*Table1*Frame1(Model)*ToggleBox1(Model)*Transition k-kl-omega (3 eqn)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Viscous Model*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")(cx-gui-do cx-activate-item "Question*OK")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Models*Frame1*Table1*Frame1*List1(Models)\" '( 2))(cx-gui-do cx-activate-item \"Models*Frame1*Table1*Frame1*List1(Models)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Models*Frame1*Table1*PushButton2(Edit)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-toggle-button "Viscous Model*Frame1*Table1*Frame1(Model)*ToggleBox1(Model)*Reynolds Stress" #f)(cx-gui-do cx-activate-item "Viscous Model*Frame1*Table1*Frame1(Model)*ToggleBox1(Model)*Reynolds Stress")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Viscous Model*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")(cx-gui-do cx-activate-item "Question*OK")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Solution Methods"))')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame2(Pressure-Velocity Coupling)*Table2(Pressure-Velocity Coupling)*DropDownList2(Scheme)\" '( 1))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame2(Pressure-Velocity Coupling)*Table2(Pressure-Velocity Coupling)*DropDownList2(Scheme)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")(cx-gui-do cx-activate-item "Question*OK")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Methods*Frame1*Table1*Frame2(Pressure-Velocity Coupling)*Table2(Pressure-Velocity Coupling)*DropDownList2(Scheme)\" '( 3))(cx-gui-do cx-activate-item \"Solution Methods*Frame1*Table1*Frame2(Pressure-Velocity Coupling)*Table2(Pressure-Velocity Coupling)*DropDownList2(Scheme)\")")
+setup3.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")(cx-gui-do cx-activate-item "Question*OK")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(OK)")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup3.SendCommand(Command='(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup3.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+Save(Overwrite=True)

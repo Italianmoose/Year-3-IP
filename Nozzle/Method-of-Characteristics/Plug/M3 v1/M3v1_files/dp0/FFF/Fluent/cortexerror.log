@@ -1,0 +1,7 @@
+
+Error [cortex] [time 9/28/15 20:19:50] 
+D:\Tools\ANSYSI~1\v161\fluent\fluent16.1.0\cortex\win64\cx1610.exe received fatal signal (ACCESS_VIOLATION)
+1. Note exact events leading to error.
+2. Save case/data under new name.
+3. Exit program and restart to continue.
+4. Report error to your distributor.
