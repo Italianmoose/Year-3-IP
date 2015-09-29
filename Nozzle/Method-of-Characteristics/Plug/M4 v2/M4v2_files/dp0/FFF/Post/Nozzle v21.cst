@@ -1,6 +1,11 @@
-# State file created:  2015/09/25 14:43:58
+# State file created:  2015/09/29 15:28:22
 # CFX-16.1 build 2015.03.16-17.41-133745
 
+CALCULATOR:
+  Case Name = Case Nozzle v2 1
+  Function = area
+  Verbose = Off
+END
 COMMENT:User Data
   Comment Exists = True
   Comment Heading = User Data
@@ -25,7 +30,7 @@ CONTOUR:Velocityplot
   Line Colour = 0, 0, 0
   Line Colour Mode = Default
   Line Width = 1
-  Location List = symmetry
+  Location List = periodic 1
   Max = 0.0 [m s^-1]
   Min = 0.0 [m s^-1]
   Number of Contours = 11
@@ -38,7 +43,7 @@ CONTOUR:Velocityplot
   Transparency = 0.0
   Use Face Values = Off
   Value List = 0 [m s^-1],1 [m s^-1]
-  Visibility = On
+  Visibility = true
   OBJECT VIEW TRANSFORM:
     Apply Reflection = Off
     Apply Rotation = Off
@@ -67,11 +72,11 @@ DATA READER:
   Construct Variables From Fourier Coefficients = True
   Current Case List = Case Nozzle v2 1
   Current Case Name = D:\Individual Project (Uni stuff annex)\Year-3-IP\Nozzle\\
-Method-of-Characteristics\Plug\v2.1\v2.1_files\dp0\FFF\Fluent\FFF-2-\
-00500.dat.gz
+Method-of-Characteristics\Plug\M4 v2\M4v2_files\dp0\FFF\Fluent\FFF-22-\
+00239.dat.gz
   Current Results File = D:\Individual Project (Uni stuff annex)\Year-3-IP\\
-Nozzle\Method-of-Characteristics\Plug\v2.1\v2.1_files\dp0\FFF\Fluent\FFF-2-\
-00500.dat.gz
+Nozzle\Method-of-Characteristics\Plug\M4 v2\M4v2_files\dp0\FFF\Fluent\FFF-22-\
+00239.dat.gz
   Current Timestep = -1
   Current Timevalue = 0
   Edit Case Names = false
@@ -99,11 +104,11 @@ Nozzle\Method-of-Characteristics\Plug\v2.1\v2.1_files\dp0\FFF\Fluent\FFF-2-\
   CASE:Case Nozzle v2 1
     Construct Variables From Fourier Coefficients = True
     Current Case Name = D:\Individual Project (Uni stuff annex)\Year-3-IP\\
-Nozzle\Method-of-Characteristics\Plug\v2.1\v2.1_files\dp0\FFF\Fluent\FFF-2-\
-00500.dat.gz
+Nozzle\Method-of-Characteristics\Plug\M4 v2\M4v2_files\dp0\FFF\Fluent\FFF-22-\
+00239.dat.gz
     Current Results File = D:\Individual Project (Uni stuff annex)\Year-3-IP\\
-Nozzle\Method-of-Characteristics\Plug\v2.1\v2.1_files\dp0\FFF\Fluent\FFF-2-\
-00500.dat.gz
+Nozzle\Method-of-Characteristics\Plug\M4 v2\M4v2_files\dp0\FFF\Fluent\FFF-22-\
+00239.dat.gz
     Current Timestep = -1
     Current Timevalue = 0
     File Angle Units = rad
@@ -117,7 +122,103 @@ Nozzle\Method-of-Characteristics\Plug\v2.1\v2.1_files\dp0\FFF\Fluent\FFF-2-\
     File Time Units = s
     Multi Configuration File Load Option = Single Case
     Workbench ID = 1
-    BOUNDARY:inlet
+    BOUNDARY:axis
+      Apply Instancing Transform = On
+      Apply Texture = Off
+      Blend Texture = On
+      Colour = 0.2, 0.5, 1
+      Colour Map = Default Colour Map
+      Colour Mode = Constant
+      Colour Scale = Linear
+      Colour Variable Boundary Values = Hybrid
+      Culling Mode = No Culling
+      Draw Faces = On
+      Draw Lines = Off
+      Instancing Transform = Default Transform
+      Lighting = true
+      Line Colour = 0, 0, 0
+      Line Colour Mode = Default
+      Line Width = 1
+      Range = Global
+      Render Edge Angle = 0 [degree]
+      Specular Lighting = On
+      Surface Drawing = Smooth Shading
+      Texture Angle = 0
+      Texture Direction = 0.0, 1.0, 0.0
+      Texture Material = Metal
+      Texture Position = 0.0, 0.0
+      Texture Scale = 1.0
+      Texture Type = Predefined
+      Tile Texture = Off
+      Transform Texture = Off
+      Transparency = 0.0
+      Visibility = false
+    END
+    BOUNDARY:periodic 1
+      Apply Instancing Transform = On
+      Apply Texture = Off
+      Blend Texture = On
+      Colour = 0.2, 0.5, 1
+      Colour Map = Default Colour Map
+      Colour Mode = Constant
+      Colour Scale = Linear
+      Colour Variable Boundary Values = Hybrid
+      Culling Mode = No Culling
+      Draw Faces = On
+      Draw Lines = Off
+      Instancing Transform = Default Transform
+      Lighting = true
+      Line Colour = 0, 0, 0
+      Line Colour Mode = Default
+      Line Width = 1
+      Range = Global
+      Render Edge Angle = 0 [degree]
+      Specular Lighting = On
+      Surface Drawing = Smooth Shading
+      Texture Angle = 0
+      Texture Direction = 0.0, 1.0, 0.0
+      Texture Material = Metal
+      Texture Position = 0.0, 0.0
+      Texture Scale = 1.0
+      Texture Type = Predefined
+      Tile Texture = Off
+      Transform Texture = Off
+      Transparency = 0.0
+      Visibility = false
+    END
+    BOUNDARY:periodic 1 shadow
+      Apply Instancing Transform = On
+      Apply Texture = Off
+      Blend Texture = On
+      Colour = 0.2, 0.5, 1
+      Colour Map = Default Colour Map
+      Colour Mode = Constant
+      Colour Scale = Linear
+      Colour Variable Boundary Values = Hybrid
+      Culling Mode = No Culling
+      Draw Faces = On
+      Draw Lines = Off
+      Instancing Transform = Default Transform
+      Lighting = true
+      Line Colour = 0, 0, 0
+      Line Colour Mode = Default
+      Line Width = 1
+      Range = Global
+      Render Edge Angle = 0 [degree]
+      Specular Lighting = On
+      Surface Drawing = Smooth Shading
+      Texture Angle = 0
+      Texture Direction = 0.0, 1.0, 0.0
+      Texture Material = Metal
+      Texture Position = 0.0, 0.0
+      Texture Scale = 1.0
+      Texture Type = Predefined
+      Tile Texture = Off
+      Transform Texture = Off
+      Transparency = 0.0
+      Visibility = false
+    END
+    BOUNDARY:pressure inlet
       Apply Instancing Transform = On
       Apply Texture = Off
       Blend Texture = On
@@ -181,7 +282,7 @@ Nozzle\Method-of-Characteristics\Plug\v2.1\v2.1_files\dp0\FFF\Fluent\FFF-2-\
       Transparency = 0.0
       Visibility = false
     END
-    BOUNDARY:symmetry
+    BOUNDARY:pressure outlet_2
       Apply Instancing Transform = On
       Apply Texture = Off
       Blend Texture = On
@@ -213,7 +314,7 @@ Nozzle\Method-of-Characteristics\Plug\v2.1\v2.1_files\dp0\FFF\Fluent\FFF-2-\
       Transparency = 0.0
       Visibility = false
     END
-    BOUNDARY:wall
+    BOUNDARY:wall_1
       Apply Instancing Transform = On
       Apply Texture = Off
       Blend Texture = On
@@ -245,7 +346,39 @@ Nozzle\Method-of-Characteristics\Plug\v2.1\v2.1_files\dp0\FFF\Fluent\FFF-2-\
       Transparency = 0.0
       Visibility = false
     END
-    DOMAIN:solid
+    BOUNDARY:wall_2
+      Apply Instancing Transform = On
+      Apply Texture = Off
+      Blend Texture = On
+      Colour = 0.2, 0.5, 1
+      Colour Map = Default Colour Map
+      Colour Mode = Constant
+      Colour Scale = Linear
+      Colour Variable Boundary Values = Hybrid
+      Culling Mode = No Culling
+      Draw Faces = On
+      Draw Lines = Off
+      Instancing Transform = Default Transform
+      Lighting = true
+      Line Colour = 0, 0, 0
+      Line Colour Mode = Default
+      Line Width = 1
+      Range = Global
+      Render Edge Angle = 0 [degree]
+      Specular Lighting = On
+      Surface Drawing = Smooth Shading
+      Texture Angle = 0
+      Texture Direction = 0.0, 1.0, 0.0
+      Texture Material = Metal
+      Texture Position = 0.0, 0.0
+      Texture Scale = 1.0
+      Texture Type = Predefined
+      Tile Texture = Off
+      Transform Texture = Off
+      Transparency = 0.0
+      Visibility = false
+    END
+    DOMAIN:surface_body
       Angle Definition Method = Instances in 360
       Apply Reflection = false
       Apply Rotation = true
@@ -260,7 +393,7 @@ Nozzle\Method-of-Characteristics\Plug\v2.1\v2.1_files\dp0\FFF\Fluent\FFF-2-\
       Full Circle = Off
       Hub Curve Mode = From Turbo Region
       Inlet Curve Mode = From Turbo Region
-      Inlet Region = inlet
+      Inlet Region = pressure inlet
       Instance Definition = From File
       Linear Blade Aligned Variable Available = false
       Number of Components in 360 = 1
@@ -269,7 +402,7 @@ Nozzle\Method-of-Characteristics\Plug\v2.1\v2.1_files\dp0\FFF\Fluent\FFF-2-\
       Number of Passages in 360 = 1
       Number of Passages in Component = 1
       Outlet Curve Mode = From Turbo Region
-      Outlet Region = pressure outlet
+      Outlet Region = pressure outlet,pressure outlet_2
       Principal Axis = Z
       Reflection Plane Option = From Plane
       Rotation Angle = 0 [degree]
@@ -418,19 +551,27 @@ LIBRARY:
       omega = Angular Velocity
       sstep = Sequence Step
       t = Time
+      velocity at exit = maxVal(Velocity)@pressure outlet
     END
   END
 END
+PARAMETERIZATION:
+  RESPONSE FIELD:velocity at exit
+    Expression Name = velocity at exit
+    Method = Expression
+  END
+END
 REPORT:
+  Excluded Report Items = /TITLE PAGE,/COMMENT:User Data
   Report Items = /TITLE PAGE,/REPORT/FILE INFORMATION OPTIONS,/REPORT/MESH \
 STATISTICS OPTIONS,/REPORT/PHYSICS SUMMARY OPTIONS,/REPORT/SOLUTION SUMMARY \
 OPTIONS,/COMMENT:User Data
   FILE INFORMATION OPTIONS:
-    Include In Report = true
+    Include In Report = false
     This Exists = true
   END
   MESH STATISTICS OPTIONS:
-    Include In Report = true
+    Include In Report = false
     Show Connectivity Number = false
     Show Edge Length Ratio = false
     Show Element Volume Ratio = false
@@ -446,7 +587,7 @@ OPTIONS,/COMMENT:User Data
     This Exists = true
   END
   PHYSICS SUMMARY OPTIONS:
-    Include In Report = true
+    Include In Report = false
     Show Boundary Physics = true
     Show Domain Physics = true
     This Exists = true
@@ -496,9 +637,6 @@ OPTIONS,/COMMENT:User Data
   END
 END
 SCALAR VARIABLE:Area
-  Boundary Values = Conservative
-END
-SCALAR VARIABLE:Boundary Heat Flux Sensible
   Boundary Values = Conservative
 END
 SCALAR VARIABLE:Connectivity Number
@@ -702,12 +840,6 @@ END
 SCALAR VARIABLE:Y
   Boundary Values = Conservative
 END
-SCALAR VARIABLE:Yplus
-  Boundary Values = Conservative
-END
-SCALAR VARIABLE:Ystar
-  Boundary Values = Conservative
-END
 SCALAR VARIABLE:Z
   Boundary Values = Conservative
 END
@@ -859,7 +991,7 @@ Legend View 1,/WIREFRAME:Wireframe
   Standard View = Isometric Y
   CAMERA:
     Option = Pivot Point and Quaternion
-    Pan = 0,0
+    Pan = 1.64263,-0.859154
     Pivot Point = 2.47852,0,1
     Rotation = -90, 0, 0
     Rotation Quaternion = 0,0,0,1
@@ -973,7 +1105,7 @@ END
 WIREFRAME:Wireframe
   Apply Instancing Transform = On
   Colour = 0, 0, 0
-  Domain List = /DOMAIN GROUP:All Domains
+  Domain List = All Domains
   Edge Angle = 30 [degree]
   Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
   Line Colour Mode = Default
