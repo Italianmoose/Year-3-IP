@@ -5,6 +5,9 @@ Currently waiting for some more info from supervisor and access to a supercomput
 
 Changelog:
 
+2015-09-29:
+Added digitised pdf of original supersonic ramjet report. Added ANSYS initial throat size optimisation
+
 2015-09-28:
 Added ANSYS files, including promising progress in both the nozzle and combustion chambers. See M4v2!
 
