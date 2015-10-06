@@ -1,0 +1,405 @@
+% This file was created with JabRef 2.10.
+% Encoding: UTF-8
+
+
+@Article{(R1945,
+  Title                    = {The Junkers Jumo 004 Jet Engine},
+  Author                   = {Power Jets (R and D) Ltd. Pystock},
+  Journal                  = {Aircraft Engineering and Aerospace Technology},
+  Year                     = {1945},
+
+  Month                    = {December},
+  Number                   = {12},
+  Pages                    = {342-347},
+  Volume                   = {17},
+
+  Abstract                 = {Now that the Air Ministry has released information on German power plants it is possible to give a detailed description and critical examination of the Jumo 004 jet engine. Most of the work of examination, including the repair and testing of an engine, was done some months preceding the final collapse of Germany. In this article it is hoped to supplement the information already given in the technical press.},
+  File                     = {:Jumo 004 Investigation Report/eb031311.pdf:PDF},
+  Keywords                 = {WW2, WWII, german, junkers, jumo, 004, jet, engine},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://dx.doi.org/10.1108/eb031311}
+}
+
+@Article{AyubPadania2015,
+  Title                    = {Numerical Solution for the Design of a Traditional Aerospike Nozzle using Method of Characteristics},
+  Author                   = {Ayub Padania, Sanjay Kumar Sardiwal, D. Harika Chowdary, M.V. Sai Sharath, Sushma Artham},
+  Journal                  = {IOSR Journal of Mechanical and Civil Engineering},
+  Year                     = {2015},
+
+  Month                    = {January-February},
+  Number                   = {1},
+  Pages                    = {63-70},
+  Volume                   = {12},
+
+  Abstract                 = {In this paper we develop a computer code which uses the Method of Characteristics and the Stream
+Function to define the traditional aerospike nozzle contour for isentropic, inviscid, irrotational supersonic flows
+of any working fluid for any user-defined exit Mach number. The contour obtained is compared to theoretical
+isentropic area ratios for the selected fluid and desired exit Mach number. The accuracy of the nozzle to
+produce the desired exit Mach number is also checked. The flow field of the nozzle created by the code is
+independently checked with the commercial Computational Fluid Dynamics (CFD) code ANSYS-FLUENT.
+ANSYS- FLUENT predictions are used to verify the isentropic flow assumption and that the working fluid
+reached the user-defined desired exit Mach number. Good agreement in area ratio and exit Mach number is
+going to be achieved, verifying that the code is accurate.},
+  File                     = {:Numerical design of an aerospike nozzle (MoC)/L012146369.pdf:PDF},
+  Keywords                 = {Supersonic, Method of Characteristics, Stream Function, Backward Characteristic, Isentropic, Prandtl- Meyer expansion angle},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://www.iosrjournals.org/iosr-jmce/papers/vol12-issue1/Version-4/L012146369.pdf}
+}
+
+@MastersThesis{Childs1987,
+  Title                    = {A Test Program for A Supersonic Ramjet},
+  Author                   = {D G Childs},
+  School                   = {University of Southampton},
+  Year                     = {1987},
+  Month                    = {May},
+
+  Abstract                 = {This project was conceived in view of the current resurgence of interest in the ramjet as a propulsion system; it is based around a model supersonic ramjet that was designed by a third year student in 1970 but never run.
+Initially the aims of the project were to first get the engine running and then to carry out as comprehensive a testing programme as the timescale allowed. This was to include off design point testing as well as work on combustion stability and efficency. However as work progressed several problems came to light and these eventually led to the abandoning of the testing option. This resulted in the project becoming more of a design exercise which would provide a basis for further work. This report includes a design method for axisymmetric De Laval nozzles usign a computer program.},
+  File                     = {:A Test Program for a Supersonic Ramjet/A Test Program for a Supersonic Ramjet v1.pdf:PDF},
+  Keywords                 = {Ramjet, Test, Supersonic},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01}
+}
+
+@Electronic{Deckerxxxx,
+  Title                    = {PRACTICAL RAM JET DESIGN},
+  Author                   = {William T. Decker},
+  HowPublished             = {Internet},
+  Organization             = {DECKER ENGINE WORKS},
+  Url                      = {http://www.pulse-jets.com/ramjet/ramjet.htm},
+  Year                     = {xxxx},
+
+  Abstract                 = {A ram jet engine is a device from which usefuI thrust can be obtained by creating a velocity difference between the atmosphere entering the ram jet body and the same quantity of air leaving the ram jet body. This velocity difference between entrance and exit air is accomplished by the addition of heat to that portion of the airstream flowing through the ram jet body. Burning liquid fuel inside the ram jet body is one means of adding heat to a ducted airstream and is the only method with which this monograph will be concerned.
+The ram jet engine is composed of three major components: a body structure, fuel injection system, and a flame stabilization system. A poor design of any one of these parts will nullify a good design of the other components. In order to build a good performing engine all three components must be of proper design because of their close relation and dependence upon each other.},
+  File                     = {:More Ramjet Design Rules of Thumb/www_pulse_jets_com_ramjet_ramjet_htm.pdf:PDF},
+  Keywords                 = {Ramjet, Design},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01}
+}
+
+@Article{Fry2004,
+  Title                    = {A Century of Ramjet Propulsion Technology Evolution},
+  Author                   = {Ronald S. Fry},
+  Journal                  = {Journal of Propulsion and Power},
+  Year                     = {2004},
+
+  Month                    = {January-February},
+  Number                   = {1},
+  Pages                    = {27-58},
+  Volume                   = {20},
+
+  Abstract                 = {A general review is presented of the worldwide evolution of ramjet propulsion since the Wright brothers  rst
+turned man’s imagination to  y into a practical reality. A perspective of the technological developments from
+subsonic to hypersonic  ight speeds is provided to allow an appreciation for the advances made internationally
+from the early 1900s to current times. Ramjet, scramjet, and mixed-cycle engine types, and their operation and
+rationale for use are considered. The development history and principal contributing development programs are
+reviewed. Major airbreathing technologies that had signi cant impact on the maturation of ramjet propulsion
+and enabled engine designs to mature to their current state are identi ed. The general state of  ight-demonstrated
+technology is summarized and compared with the technology base of 1980. The current status of ramjet/scramjet
+technology is identi ed. Ramjet and scramjet propulsion technology has matured dramatically over the years
+in support of both military and space access applications, yet many opportunities remain to challenge future
+generations of explorers.},
+  File                     = {:A Century of Ramjet Development/Ronald Ramjet review p27.pdf:PDF},
+  Keywords                 = {ramjet, review},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://bemil.chosun.com/brd/files/BEMIL064/upload/Ronald%20Ramjet%20review%20p27.pdf}
+}
+
+@TechReport{Holzmannxxxx,
+  Title                    = {The Power of Ten – Rules for Developing Safety Critical Code},
+  Author                   = {Gerard J. Holzmann},
+  Institution              = {NASA/JPL Laboratory for Reliable Software},
+  Year                     = {xxxx},
+
+  Address                  = {NASA/JPL Laboratory for Reliable Software
+Pasadena, CA 91109},
+  Type                     = {Technical Report},
+
+  Abstract                 = {Most serious software development projects use coding guidelines. These guidelines are
+meant to state what the ground rules are for the software to be written: how it should be
+structured and which language features should and should not be used. Curiously, there is
+little consensus on what a good coding standard is. Among the many that have been
+written there are remarkable few patterns to discern, except that each new document
+tends to be longer than the one before it. The result is that most existing guidelines
+contain well over a hundred rules, sometimes with questionable justification. Some rules,
+especially those that try to stipulate the use of white-space in programs, may have been
+introduced by personal preference; others are meant to prevent very specific and unlikely
+types of error from earlier coding efforts within the same organization. Not surprisingly,
+the existing coding guidelines tend to have little effect on what developers actually do
+when they write code. The most dooming aspect of many of the guidelines is that they
+rarely allow for comprehensive tool-based compliance checks. Tool-based checks are
+important, since it is often infeasible to manually review the hundreds of thousands of
+lines of code that are written for larger applications.},
+  File                     = {:NASA Code Rules/P10.pdf:PDF},
+  Keywords                 = {code, NASA, safety critical},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://pixelscommander.com/wp-content/uploads/2014/12/P10.pdf}
+}
+
+@TechReport{Lee1964,
+  Title                    = {Numerical Analysis of Plug Nozzles by the Method of Characteristics},
+  Author                   = {C.C. Lee and S.J. Inman},
+  Institution              = {BROWN Engineering Company Inc.},
+  Year                     = {1964},
+
+  Address                  = {Research Laboratories
+Brown Engineering Company, Inc.},
+  Month                    = {May},
+  Number                   = {R-101},
+  Type                     = {Technical Note},
+
+  Abstract                 = {This report describes the theory used to calculate supersonic
+flow in plug nozzles and the computer program based on this theory.
+Flow properties are calculated by the method of characteristics.
+Sauer's transonic theory is used to determine the starting line and Korst's
+technique is used to calculate the base pressure.},
+  File                     = {:MoC design of Plug Nozzles/602268.pdf:PDF},
+  Keywords                 = {Method of Characteristics, plug, nozzle, numerical analysis},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://www.dtic.mil/dtic/tr/fulltext/u2/602268.pdf}
+}
+
+@TechReport{Lee1963,
+  Title                    = {FORTRAN PProgram for Plug Nozzle Design},
+  Author                   = {C. C. Lee},
+  Institution              = {BROWN Engineering Company, Inc.},
+  Year                     = {1963},
+
+  Address                  = {Scientific Research Laboratories
+Brown Engineering Company, Inc.},
+  Month                    = {Narch},
+  Type                     = {Computer Program},
+
+  Abstract                 = {Two FORTRAN computer programs for the design of pure external and internal-external expansion plug nozzles are described in this report. The output from these programs includes the contour of the nozzle and various performance parameters. The approximate design method is based on simple wave flow concepts which are described by T.L. Deyound},
+  File                     = {:FORTRAN program for aerospike plug nozzle design/19630012259.pdf:PDF},
+  Keywords                 = {FORTRAN, program, plug, nozzle, design},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {https://ia802708.us.archive.org/4/items/nasa_techdoc_19630012259/19630012259.pdf}
+}
+
+@Conference{MehdiNazariniaxxxx,
+  Title                    = {Design and Numerical Analysis of Aerospike Nozzles with Different Plug Shapes to Compare their Performance with a Conventional Nozzle},
+  Author                   = {Mehdi Nazarinia, Arash Naghib-Lahouti and Elhaum Tolouei},
+  Booktitle                = {Eleventh Australian International Aerospace Congress},
+  Year                     = {xxxx},
+
+  Address                  = {Aerospace Research Institute, P.O. Box 14665-834, Tehran, Iran},
+  Number                   = {11},
+  Organization             = {National
+Space
+Engineering
+Melbourne,
+Victoria,
+Australia Symposium},
+  Pages                    = {22},
+  Volume                   = {AIAC-11},
+
+  Abstract                 = {The objective of the present study is to demonstrate thrust advantage of a small
+axisymmetric aerospike nozzle in comparison with the equivalent conventional (convergent-
+divergent) nozzle through numerical simulation, and to study the effects of geometrical
+parameters on the aerospike’s performance. Internal and external flow of the aerospike nozzle
+and the equivalent conventional nozzle has been numerically analyzed in different ratios of
+ambient pressure to design exhaust pressure (P atm /P des ) representing optimum, under- and
+over-expansion working conditions. Results indicate that the aerospike nozzle can deliver as
+much as 5% more thrust in over-expansion conditions. To address practical aspects of using
+an aerospike nozzle, effects of geometric parameters including base curvature, and different
+values of plug truncation ranging from 0 to 75%, on thrust and base temperature distribution
+of the nozzle have been studied. Results show that higher values of base truncation are more
+appropriate for flight at altitudes higher than design altitude (under-expansion condition),
+while lower values are more appropriate for flight below design altitude. It has also been
+shown that adding curvature to the base of a truncated plug can improve local temperature
+distribution without any significant effect on thrust.},
+  File                     = {:More aerospike nozzle design/Nazarinia Mehdi 138 AIAC11.pdf:PDF},
+  Keywords                 = {nozzle, aerospike, truncation, design, thrust, CFD},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://www.researchgate.net/profile/Mehdi_Nazarinia2/publication/230601230_Design_and_Numerical_Analysis_of_Aerospike_Nozzles_with_Different_Plug_Shapes_to_Compare_their_Performance_with_a_Conventional_Nozzle/links/09e41501e1046c4691000000.pdf?disableCoverPage=true}
+}
+
+@TechReport{Pinkelxxxx,
+  Title                    = {Equation For The Design Of Two-Dimensional Supersonic Nozzles},
+  Author                   = {I. Irving Pinkel},
+  Institution              = {NACA},
+  Year                     = {xxxx},
+  Number                   = {907},
+  Type                     = {Design Report},
+
+  Abstract                 = {Equations are presented for obtaining the wall coordinates of two-dimensional supersonic nozzles. The equations are based on the application of the method of characteristics to irrotational flow of perfect gases in channels. Curves and tables are included for obtaining the parameters required by the equations for the wall coordinates.
+A brief discussion of characteristics as applied to nozzle design is given to assist in understanding and using the nozzle design method of this report. A sample design is shown.},
+  File                     = {:NACA Report on Nozzle Design/naca-report-907.pdf:PDF},
+  Keywords                 = {Design, nozzle, 2d},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://naca.central.cranfield.ac.uk/reports/1948/naca-report-907.pdf}
+}
+
+@Article{Reid1967,
+  Title                    = {The Effects of Base Bleed on Plug Nozzles},
+  Author                   = {J. Reid},
+  Journal                  = {Reports and Memoranda; Aeronautical Research Council},
+  Year                     = {1967},
+
+  Month                    = {February},
+  Number                   = {3466},
+  Pages                    = {51},
+
+  Abstract                 = {This is an experimental comparison Of two axi-symmetric, isentropic plug nozzles. In one of these
+(Model No. 1) the afterbody is cylindricaland a secondary flow is bled into the annular base. The other
+(Model No. 2) has a parabolic afterbody with no base or bleed. In both cases the expansion is all-external
+and the design pressure ratio is 14.
+These models were tested over a range of primary and secondary flows at Moo = 0, 0"9 and 2.0. In the
+case of Model No. 1 measurements include the primary and secondary flow rates, the base pressure
+and the plug pressure distribution. The overall thrust was determined by a balance and analysed into
+its components; namely, the nozzle thrust and the drag of the bleed system. With Model No. 2 only the
+primary flow rate and overall thrust were measured.
+Both nozzles are efficient at the cruising condition (M~ = 2-0) and both are exceptionally flexible with
+regard to off-design operation (Moo = 0.9 and 0). However, at Moo = 0.9 and 2.0, the overall thrust of
+Model No. 1 using optimum bleed is slightly less than that of Model No. 2.},
+  File                     = {:Base bleed on plug nozzles/3466.pdf:PDF},
+  Keywords                 = {nozzle, plug, aerospike},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://naca.central.cranfield.ac.uk/reports/arc/rm/3466.pdf}
+}
+
+@Book{ShaunEmery2002,
+  Title                    = {The Defence Systems Engineering Handbook},
+  Author                   = {Shaun Emery, Kenneth Flatters, Andrew Jones, Robert Linton, Gary Steel, Steven Waller and Timothy Webb},
+  Editor                   = {Robert Linton},
+  Publisher                = {Defence Engineering Group},
+  Year                     = {2002},
+
+  Abstract                 = {This handbook is intended to be a short guide to Defence Systems Engineering (DSE) that
+shares with the civil sector many of the principles of systems engineering, but applies them
+within the defence environment. It is a review of defence systems engineering taught by the
+Defence Engineering Group (DEG) at University College London (UCL) for the United
+Kingdom Ministry of Defence.
+The guide contains a description of
+* Defence Systems Engineering and how it differs from Systems Engineering.
+* The role Defence Systems Engineering has to play in the acquisition of defence
+systems, including the CADMID acquisition cycle, and the roles of MoD, Dstl, DPA,
+DLO, the Armed Forces and industry
+This handbook has been written for technical, administrative and Armed Forces personnel
+within MoD(UK), but will hopefully be of interest to a wider audience. The guide will also
+provide background reading to prepare students for courses in DSE.
+The original work for this guide was performed by Shaun Emery, Kenneth Flatters, Andrew
+Jones, Robert Linton, Gary Steel, Steven Waller and Timothy Webb as an MSc team project.
+The material was then reviewed by the DEG staff and amendments/alterations incorporated.
+The revised material was edited for publication by Robert Linton.},
+  File                     = {:A Guide to Defence Acquisition/DSE_GUIDE_EDITION_1A.pdf:PDF},
+  Keywords                 = {CADMID, Defence, Project Management},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://user.das.ufsc.br/~moreno/seguranca/analise%20de%20risco/DSE_GUIDE_EDITION_1A.pdf}
+}
+
+@Conference{Shope2006,
+  Title                    = {Contour Design Techniques for Super/Hypersonic Wind Tunnel Nozzles},
+  Author                   = {Frederick L. Shope},
+  Booktitle                = {24th Applied Aerodynamics Conference},
+  Year                     = {2006},
+
+  Address                  = {Aerospace Testing Alliance
+Arnold Engineering Development Center, Tennessee 37389},
+  Month                    = {June},
+  Number                   = {24},
+  Organization             = {American Institute of Aeronautics and Astronautics},
+  Pages                    = {14},
+
+  Abstract                 = {A brief tutorial is offered on several techniques for designing nozzle contours for
+supersonic and hypersonic wind tunnels. A set of conditions sufficient for the
+existence of a contour that will deliver a uniform test section flow is proposed. A
+specific iterative second-order-accurate algorithm for solution by the method of
+characteristics (MOC) is described along with its use in contour design. A widely
+distributed design code, the CONTUR code by J. C. Sivells, is discussed in some
+detail, and recommendations for application procedures based on CONTUR are
+given. Design examples from CONTUR are shown. With MOC as a starting point, a
+brief description of design-by-analysis methods is presented along with a sample
+design.},
+  File                     = {:Nozzle Design/2006-3665_Shope.pdf:PDF},
+  Keywords                 = {Design, Supersonic, nozzle,},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://www.aero.polimi.it/~vige/bacheca/iper/materiale_didattico/2006-3665_Shope.pdf}
+}
+
+@TechReport{Westley1980,
+  Title                    = {Table of Recommended Rate Constants for Chemical Reactions Occuring in Combustion},
+  Author                   = {Francis Westley},
+  Institution              = {Office of Standard Reference Data},
+  Year                     = {1980},
+
+  Address                  = {Chemical Kinetics Information Center
+National Measurement Laboratory
+National Bureau of Standards
+Washington, D.C. 20234},
+  Month                    = {April},
+  Type                     = {Data Tables},
+
+  Abstract                 = {A table of recommended rate constants for gas phase chemical reactions occurring in combustion is presented. Specifically it gives in tabular form the values of the parameters for the modified Arrhenius equation k=AT^Bexp(-E/RT). The table covers reactions occuring in the combustion, oxidation and decomposition of aliphatic saturated or unsaturated C1 to C10 hydrocarbons, alcohols, aldehydes, ketones, thiols, ethers, peroxides, amines, amides and their free radicals, as well as the reactions of O, O2, H, H2, OH, H2O, H2O2, N, N2, NO, N2O, NO2, N2O4, N2O3, S, S2, SH, SO, SO2, SOH, NS, with each other. The table contains 169 first order reactions, 782 second order reactions, and 57 third order reactions. There are 1770 entries covering 1008 distinct chemical reactions. These recommendations have been taken from eleven evaluations and critical reviews published between 1970 and 1976. The papers examined by the evaluators extend from the nineteen fifties up to and including 1975.},
+  File                     = {:Collection of combustion rate stuff/NSRDS-NBS67.pdf:PDF},
+  Keywords                 = {combustion, table, data, Arrhenius parameters, chemical kinetics, decomposition, free radicals, gas phase, hydrocarbons, hydrogen, nitrogen, oxygen, rates of reaction, sulphur},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://www.nist.gov/data/nsrds/NSRDS-NBS67.pdf}
+}
+
+@Article{Y.D.Dwivedi2012,
+  Title                    = {Design of Supersonic Wind Tunnel Using Method Of Characteristics},
+  Author                   = {Y. D. Dwivedi, B. Parvathavadhanl K., Nirmith Kumar Mishra},
+  Journal                  = {International Journal of Advanced Transport Phenomena},
+  Year                     = {2012},
+
+  Month                    = {January-December},
+  Number                   = {01},
+  Pages                    = {10},
+  Volume                   = {01},
+
+  Abstract                 = {The future of aerospace is supersonic and a supersonic wind tunnel is the fundamental requirement of
+the day. This design will help build small scale and large scale supersonic wind tunnels for testing objects such
+as the spikes used in the fore section of supersonic aircrafts, and shock absorbing objects etc. Shocks are evident
+in a supersonic flow and when air passes through a shock, the velocity reduces and thus not allowing the speed
+to be maintained constant throughout the section and also reducing the efficiency of the wind tunnel. By using
+the Method of characteristics, we assume characteristic points and see to it that the shocks, if formed will be in
+contact with the surface and does not affect the uniformity of the flow through the duct and the velocity of the
+flow. A thorough understanding of the method of characteristics and its application to the design of supersonic
+wind tunnel nozzle is required. We make use of the Area-Mach relation, Prandtl Mayer spread sheet solver and
+other tools to define 64 coordinates in the supersonic section of the nozzle, including the internal points. The
+Wind Tunnel has been designed in CATIA v5 and the coordinates of the supersonic section of the wind tunnel
+have been obtained from MS Excel by doing the calculations and using its Goal Seek feature to simplify very
+complicated equation. The contour of the supersonic section of the wind tunnel is so designed that the shocks
+cancel each other, the shocks do not affect the velocity of the flow in order to obtain supersonic flow.},
+  File                     = {:MoC run through (mostly)/3010103.pdf:PDF},
+  Keywords                 = {Design, Supersonic, Wind Tunnel, Method of Characteristics},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://www.basharesearch.com/ijatp/3010103.pdf}
+}
+
+@TechReport{,
+  Title                    = {Basic Supersonic Ramjet Point-Design Performance},
+  Author                   = {G. B. W. Young},
+  Institution              = {The RAND Coporation},
+  Year                     = {1955},
+
+  Address                  = {1700 Main St,
+Santa Monica,
+California},
+  Month                    = {December},
+  Number                   = {RM-1615},
+  Type                     = {Research Memorandum},
+
+  Abstract                 = {Due to the changing state of the art in ramjet propulsion and in missile weaponeering, the ramjet engineer is confronted frequently with the need to estimate corresponding improvements in ramjet performance. The basic point design performance characteristics through the Mach number range of 1.3 to 5.0 are presented graphically for a wide variation in component efficiencies. Thus, as component (diffusers, combustor, nozzle etc.) performance characteristics change as a result of either advances in the state of the art or modified flight conditions, the new thrust and specific impulse levels can be estimated. The results given apply only to hydrocarbon fuels.},
+  File                     = {:Ramjet Design Rules of Thumb/RM1615.pdf:PDF},
+  Keywords                 = {Ramjet, Design},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.01},
+  Url                      = {http://www.rand.org/content/dam/rand/pubs/research_memoranda/2006/RM1615.pdf}
+}
+
