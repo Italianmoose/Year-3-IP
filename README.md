@@ -5,6 +5,9 @@ Currently waiting for some more info from supervisor and access to a supercomput
 
 Changelog:
 
+2015-10-06:
+Synced current progress, added project management files, reports, and presentations
+
 2015-09-29:
 Added digitised pdf of original supersonic ramjet report. Added ANSYS initial throat size optimisation
 
