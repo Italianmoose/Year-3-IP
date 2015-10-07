@@ -403,3 +403,22 @@ California},
   Url                      = {http://www.rand.org/content/dam/rand/pubs/research_memoranda/2006/RM1615.pdf}
 }
 
+@Article{C.H.Wang2009,
+  Title                    = {Aerospike nozzle contour design and its performance validation},
+  Author                   = {Chang-Hui Wang, Yu Liu, Li-Zi Qin},
+  Journal                  = {Acta Astronautica},
+  Year                     = {2009},
+
+  Month                    = {June-July},
+  Number                   = {11-12},
+  Pages                    = {1264-1275},
+  Volume                   = {64},
+
+  Abstract                 = {A simplified design and optimization method of aerospike nozzle contour and the results of tests and numerical simulation of aerospike nozzles are presented. The primary nozzle contour is approximated by two circular arcs and a parabola; the plug contour is approximated by a parabola and a third-order polynomial. The maximum total impulse from sea level to design altitude is adopted as objective to optimize the aerospike nozzle contour. Experimental studies were performed on a 6-cell tile-shaped aerospike nozzle, a 1-cell linear aerospike nozzle and a 3-cell aerospike nozzle with round-to-rectangle (RTR) primary nozzles designed by method proposed in present paper. Three aerospike nozzles achieved good altitude compensation capacities in the tests and still had better performance at off-design altitudes compared with that of the bell-shaped nozzle. In cold-flow tests, 6-cell tile-shaped aerospike nozzle and 1-cell linear aerospike nozzle obtained high thrust efficiency at design altitude. Employing gas H2/gas O2 (GH2/GO2) as propellants, hot-firing tests were carried out on a 3-cell aerospike nozzle engine with RTR primary nozzles. The performance was obtained under two nozzle pressure ratios (NPR) lower than design altitude. Efficiency reached 92.0–93.5% and 95.0–96.0%, respectively. Pressure distribution along plug ramp was measured and the effects of variation in the amount of base bleed on performance were also examined in the tests.},
+  File                     = {},
+  Keywords                 = {Rocket propulsion, Aerospike nozzle, Contour, Experiment, Performance},
+  Owner                    = {peter},
+  Timestamp                = {2015.10.07},
+  Url                      = {http://dx.doi.org/10.1016/j.actaastro.2008.01.045}
+}
+
