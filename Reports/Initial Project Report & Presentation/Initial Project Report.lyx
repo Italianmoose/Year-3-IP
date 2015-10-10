@@ -282,12 +282,13 @@ In the Assessment phase the requirements are defined.
 \end_layout
 
 \begin_layout Itemize
-A single solution to the problem is identified.
+A single solution to the problem is identified and a logical system architecture
+ is created.
 \end_layout
 
 \begin_layout Itemize
-In this project, the final geometry will be defined here, along with a broad
- description of the control system's architecture.
+In this project, a broad description of the control system's architecture
+ will be created here.
 \end_layout
 
 \end_deeper
@@ -300,6 +301,7 @@ Demonstration
 In the Demonstration phase the solution to the requirements is defined more
  fully, and is used to demonstrate the compliance of the final solution
  with the requirements.
+ The physical architecture of the project is created here.
 \end_layout
 
 \begin_layout Itemize

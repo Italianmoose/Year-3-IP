@@ -326,7 +326,8 @@ In-service
 \begin_deeper
 \begin_layout Itemize
 This phase begins when the project's output is accepted into use, and the
- project is monitored for obsolescence issues
+ project is monitored for obsolescence issues.
+ 
 \end_layout
 
 \end_deeper
@@ -337,7 +338,7 @@ Disposal
 \begin_deeper
 \begin_layout Itemize
 In this phase the obsolete solution is removed from use in such a way as
- to minimise the impact on the user and the environment
+ to minimise the impact on the user and the environment.
 \end_layout
 
 \end_deeper
