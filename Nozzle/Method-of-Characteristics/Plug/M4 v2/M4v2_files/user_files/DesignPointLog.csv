@@ -69,3 +69,31 @@ DP 18,0.095000000000000015,422.189,676.043
 # A non parametric change occurred and invalidated design point results.
 # 10/05/2015 13:08:57
 # 
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/11/2015 17:18:50
+# 
+# 
+# 10/11/2015 17:41:06
+# Parameters have been added and/or removed. The parameters now defined in the project are:
+# P1 - Point2.x [m],P4 - velocity at exit [m s^-1],P3 - outletvelocity [m s^-1]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P4,P3
+DP 12,0.030000000000000006,1245.84,676.043
+DP 0,0.05,1304.2,676.043
+DP 17,0.15000000000000002,1380.89,676.043
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/11/2015 17:53:42
+# 
+DP 0,0.05,1304.16,676.043
+DP 14,0.090000000000000011,1364.94,676.043
+DP 15,0.11000000000000001,1357.37,676.043
+DP 16,0.13,1378.04,676.043
+DP 20,0.15000000000000002,1379.71,676.043
+DP 21,0.19000000000000003,1399.04,676.043
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/11/2015 18:14:10
+# 
