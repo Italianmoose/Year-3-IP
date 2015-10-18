@@ -1,0 +1,115 @@
+﻿# 
+# This file contains the parameter values of the Design Points successfully updated by ANSYS Workbench.
+# Project name: M4v2
+# Creation date: 09/29/2015 14:01:17
+# 
+# 09/29/2015 14:01:17
+# The parameters defined in the project are:
+# P1 - Point2.x [m],P3 - outletvelocity [m s^-1]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P3
+DP 0,0.04,676.043
+DP 1,0.04505,676.043
+DP 2,0.046,676.043
+DP 3,0.048,676.043
+DP 4,0.05,676.043
+DP 5,0.052000000000000005,676.043
+DP 6,0.054000000000000006,676.043
+DP 2,0.003,676.043
+DP 5,0.020999999999999998,676.043
+DP 9,0.045,676.043
+DP 10,0.051000000000000004,676.043
+DP 11,0.057,676.043
+# 
+# A non parametric change occurred and invalidated design point results.
+# 09/29/2015 14:44:02
+# 
+# 
+# 09/29/2015 14:49:36
+# Parameters have been added and/or removed. The parameters now defined in the project are:
+# P1 - Point2.x [m],P4 - velocity at exit [m s^-1],P3 - outletvelocity [m s^-1]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P4,P3
+DP 10,0.03,340.719,676.043
+DP 12,0.0049999999999999992,254.707,676.043
+# 
+# 09/29/2015 14:56:23
+# Parameters have been added and/or removed. The parameters now defined in the project are:
+# P1 - Point2.x [m],P3 - outletvelocity [m s^-1],P4 - velocity at exit [m s^-1]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P3,P4
+DP 4,0.015,676.043,297.4
+# 
+# 09/29/2015 14:59:06
+# Parameters have been added and/or removed. The parameters now defined in the project are:
+# P1 - Point2.x [m],P4 - velocity at exit [m s^-1],P3 - outletvelocity [m s^-1]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P4,P3
+DP 13,0.024999999999999998,333.8,676.043
+DP 12,0.034999999999999996,324.135,676.043
+DP 13,0.045000000000000005,370.084,676.043
+DP 14,0.055000000000000007,382.644,676.043
+DP 15,0.065,408.835,676.043
+DP 16,0.075000000000000011,410.084,676.043
+DP 17,0.08500000000000002,415.559,676.043
+DP 18,0.095000000000000015,422.189,676.043
+# 
+# A non parametric change occurred and invalidated design point results.
+# 09/29/2015 15:27:46
+# 
+# 
+# A non parametric change occurred and invalidated design point results.
+# 09/29/2015 18:02:49
+# 
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/05/2015 13:08:57
+# 
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/11/2015 17:18:50
+# 
+# 
+# 10/11/2015 17:41:06
+# Parameters have been added and/or removed. The parameters now defined in the project are:
+# P1 - Point2.x [m],P4 - velocity at exit [m s^-1],P3 - outletvelocity [m s^-1]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P4,P3
+DP 12,0.030000000000000006,1245.84,676.043
+DP 0,0.05,1304.2,676.043
+DP 17,0.15000000000000002,1380.89,676.043
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/11/2015 17:53:42
+# 
+DP 0,0.05,1304.16,676.043
+DP 14,0.090000000000000011,1364.94,676.043
+DP 15,0.11000000000000001,1357.37,676.043
+DP 16,0.13,1378.04,676.043
+DP 20,0.15000000000000002,1379.71,676.043
+DP 21,0.19000000000000003,1399.04,676.043
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/11/2015 18:14:10
+# 
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/12/2015 11:38:39
+# 
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/12/2015 22:07:06
+# 
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/15/2015 21:50:05
+# 
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/16/2015 00:02:13
+# 

@@ -1,0 +1,430 @@
+﻿# encoding: utf-8
+# Release 16.1
+SetScriptVersion(Version="16.1.91")
+template1 = GetTemplate(TemplateName="Direct Optimization")
+system1 = template1.CreateSystem()
+system2 = GetSystem(Name="FFF")
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+ClearMessages()
+geometry1.Exit()
+results1 = system2.GetContainer(ComponentName="Results")
+results1.Edit()
+results1.SendCommand(Command=">centerview 1")
+results1.SendCommand(Command="""SCALAR VARIABLE:Velocity u
+Boundary Values = Conservative
+User Units = m s^-1
+END""")
+results1.SendCommand(Command="""VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Turbo Initialisation View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Turbo Initialisation View, viewport=1""")
+results1.SendCommand(Command="""VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Turbo Initialisation View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Turbo Initialisation View, viewport=1""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Synchronize Visibility = false
+END""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Maximized Viewport = -1
+  Synchronize Camera = false
+  Synchronize Visibility = true
+  View Length Units = m
+  Viewer Camera Z = -5
+  Viewer Eye Point = Normal
+  Viewer Eye Separation = 5
+  Viewport 1 View = View 1
+  Viewport 2 View = View 2
+  Viewport 3 View = View 3
+  Viewport 4 View = View 4
+  Viewport Layout = No Split
+  X Split = 0.5
+  Y Split = 0.5
+END""")
+results1.Exit()
+optimizationComponent1 = system1.GetComponent(Name="Optimization")
+optimizationComponent1.Refresh()
+optimization1 = system1.GetContainer(ComponentName="Optimization")
+optimizationModel1 = optimization1.GetModel()
+inputParameter1 = optimizationModel1.GetParameter(Name="P2")
+inputParameter1.Enabled = False
+results1.Edit()
+results1.SendCommand(Command="""SCALAR VARIABLE:Velocity u
+Boundary Values = Conservative
+User Units = m s^-1
+END""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      outletvelocity = u
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = outletvelocity
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""EXPRESSION PREVIEW:
+Preview Expression = outletvelocity
+Preview Mode = Query
+END""")
+results1.SendCommand(Command="""CALCULATOR:
+Case Name = Case Nozzle v2 1
+END
+EXPRESSION PREVIEW:
+  Case Name = Case Nozzle v2 1
+  Preview Expression = outletvelocity
+  Preview Mode = Evaluate Point
+  Preview Variable Values = Velocity u, 
+END""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      outletvelocity = max(velocity)@pressure-outlet
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = outletvelocity
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      outletvelocity = maxVal(Velocity u)@pressure outlet
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = outletvelocity
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""EXPRESSION PREVIEW:
+Preview Expression = outletvelocity
+Preview Mode = Query
+END""")
+results1.SendCommand(Command="""CALCULATOR:
+Case Name = Case Nozzle v2 1
+END
+EXPRESSION PREVIEW:
+  Case Name = Case Nozzle v2 1
+  Preview Expression = outletvelocity
+  Preview Mode = Evaluate Point
+END""")
+results1.SendCommand(Command="""PARAMETERIZATION:
+  RESPONSE FIELD: outletvelocity
+    Method = Expression
+    Expression Name = outletvelocity
+  END
+END""")
+results1.Exit()
+optimizationComponent1.Refresh()
+outputParameter1 = optimizationModel1.GetParameter(Name="P3")
+optimizationCriterion1 = outputParameter1.CreateOptimizationCriterion()
+optimizationCriterion1.ObjectiveType = "GT_MaximumPossible"
+optimizationComponent1.Update(AllDependencies=True)
+screeningOptimization1 = optimizationModel1.Method
+screeningOptimization1.NumberOfSamples = 5
+screeningOptimization1.MaxNumCandidates = 1
+geometry1.Edit()
+geometry1.Exit()
+meshComponent1 = system2.GetComponent(Name="Mesh")
+meshComponent1.Refresh()
+mesh1 = system2.GetContainer(ComponentName="Mesh")
+mesh1.Edit()
+mesh1.Exit()
+setupComponent1 = system2.GetComponent(Name="Setup")
+setupComponent1.Refresh()
+setup1 = system2.GetContainer(ComponentName="Setup")
+fluentLauncherSettings1 = setup1.GetFluentLauncherSettings()
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(EnvPath={}))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|Boundary Conditions"))')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\" '( 3))(cx-gui-do cx-activate-item \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Boundary Conditions*Frame1*Table1*Frame2*Table2*Frame4*Table4*ButtonBox1*PushButton1(Edit)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "pressure-outlet-6-1*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\" '( 2))(cx-gui-do cx-activate-item \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Boundary Conditions*Frame1*Table1*Frame2*Table2*Frame4*Table4*ButtonBox1*PushButton1(Edit)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-real-entry-list \"pressure-inlet-9-1*Frame4*Frame1(Momentum)*Frame1*Table1*Frame6*Table6*RealEntry2(Gauge Total Pressure)\" '( 10000))(cx-gui-do cx-set-real-entry-list \"pressure-inlet-9-1*Frame4*Frame1(Momentum)*Frame1*Table1*Frame7*Table7*RealEntry2(Supersonic/Initial Gauge Pressure)\" '( 10000))(cx-gui-do cx-set-real-entry-list \"pressure-inlet-9-1*Frame4*Frame3(Thermal)*Frame1*Table1*Frame1*Table1*RealEntry2(Total Temperature)\" '( 3434))(cx-gui-do cx-activate-item \"pressure-inlet-9-1*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\" '( 5))(cx-gui-do cx-activate-item \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\" '( 5))(cx-gui-do cx-activate-item \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\" '( 6))(cx-gui-do cx-activate-item \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\" '( 5))(cx-gui-do cx-activate-item \"Boundary Conditions*Frame1*Table1*Frame1*List1(Zone)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "ToolBar*General Tools*write")')
+Save(Overwrite=True)
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup|General"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Frame1*Table1*PushButton21(Calculate)")(cx-gui-do cx-activate-item "Question*Cancel")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Solution Initialization"))')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Solution Initialization*Frame1*Table1*DropDownList1(Compute from)\" '( 3))(cx-gui-do cx-activate-item \"Solution Initialization*Frame1*Table1*DropDownList1(Compute from)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Frame1*Table1*ButtonBox8*PushButton1(Initialize)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Solution|Run Calculation"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Run Calculation*Initialize & Calculate")(cx-gui-do cx-activate-item "Question*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Contours|velocity"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-velocity*Display")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Parameters & Customization|Parameters|Output Parameters"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Parameters & Customization|Parameters|Input Parameters"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Parameters & Customization|Parameters|Input Parameters"))(cx-gui-do cx-activate-item "NavigationPane*List_Tree1")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Parameters*Frame1*Table1*Frame1*Table1*Frame2*Table2*PushButton3(More)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Parameters*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Parameters & Customization"))(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+results1.Edit()
+results1.SendCommand(Command="> autolegend plot=/CONTOUR:Velocityplot, view=VIEW:View 1")
+results1.SendCommand(Command="""CONTOUR:Velocityplot
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = periodic 1
+Max = 0.0 [m s^-1]
+Min = 0.0 [m s^-1]
+Number of Contours = 11
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [m s^-1],1 [m s^-1]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.47852, 0, 1
+    Scale = 0.438749
+    Pan = 1.78953, -0.347223
+    Rotation Quaternion = 0, 0, 0, 1
+    
+  END
+
+END
+
+> update
+>centerview 1""")
+results1.Exit()
+designPoint1 = Parameters.GetDesignPoint(Name="1")
+designPoint2 = Parameters.GetDesignPoint(Name="0")
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint1, designPoint2])
+results1.Edit()
+results1.SendCommand(Command="> autolegend plot=/CONTOUR:Velocityplot, view=VIEW:View 1")
+results1.SendCommand(Command="""CONTOUR:Velocityplot
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = periodic 1
+Max = 0.0 [m s^-1]
+Min = 0.0 [m s^-1]
+Number of Contours = 11
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [m s^-1],1 [m s^-1]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="> autolegend plot=/DEFAULT LEGEND:Default Legend View 1, view=VIEW:View 1")
+results1.SendCommand(Command="> autolegend plot=/WIREFRAME:Wireframe, view=VIEW:View 1")
+results1.SendCommand(Command="> report hideItem=/TITLE PAGE")
+results1.SendCommand(Command="> report hideItem=/REPORT/FILE INFORMATION OPTIONS")
+results1.SendCommand(Command="> report hideItem=/REPORT/MESH STATISTICS OPTIONS")
+results1.SendCommand(Command="> report hideItem=/REPORT/PHYSICS SUMMARY OPTIONS")
+results1.SendCommand(Command="> report hideItem=/COMMENT:User Data")
+Save(Overwrite=True)
+results1.Exit()
+resultsComponent1 = system2.GetComponent(Name="Results")
+resultsComponent1.Update(AllDependencies=True)
+ClearMessages()
+optimizationComponent1.Refresh()
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint1])
+optimizationComponent1.Update(AllDependencies=True)
+inputParameter2 = optimizationModel1.GetParameter(Name="P1")
+optimizationCriterion2 = inputParameter2.GetOptimizationCriterion()
+optimizationCriterion2.LowerBound = 0
+optimizationCriterion2.UpperBound = 0.06
+screeningOptimization1.NumberOfSamples = 10
+optimizationComponent1.Update(AllDependencies=True)
+solution1 = system2.GetContainer(ComponentName="Solution")
+solution1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list ))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Setup"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Contours|velocity"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-velocity*Display")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*List_Tree1" (list "Results|Graphics|Pathlines"))(cx-gui-do cx-list-tree-right-click "NavigationPane*List_Tree1" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-Pathlines*Edit...")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame6*Table6*DropDownList1(Color by)\" '( 3))(cx-gui-do cx-activate-item \"Pathlines*Frame6*Table6*DropDownList1(Color by)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Pathlines*Frame9*List9(Release from Surfaces)\" '( 2))(cx-gui-do cx-activate-item \"Pathlines*Frame9*List9(Release from Surfaces)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton1(Compute)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pathlines*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(%cx-warning-dialog "OK to close Fluent?" #f)(cx-gui-do cx-activate-item "Warning*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+results1.Edit()
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 2.47852, 0, 1
+    Scale = 0.438749
+    Pan = 1.64263, -0.859154
+    Rotation Quaternion = 0, 0, 0, 1
+    
+  END
+
+END
+
+> update
+LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      velocity at exit = maxVal(Velocity)@pressure outlet
+    END
+  END
+END
+
+EXPRESSION EVALUATOR:
+  Evaluated Expression = velocity at exit
+END
+
+> forceupdate EXPRESSION EVALUATOR""")
+results1.SendCommand(Command="""EXPRESSION PREVIEW:
+Preview Expression = velocity at exit
+Preview Mode = Query
+END""")
+results1.SendCommand(Command="""EXPRESSION PREVIEW:
+Preview Expression = velocity at exit
+Preview Mode = Query
+END""")
+results1.SendCommand(Command="""CALCULATOR:
+Case Name = Case Nozzle v2 1
+END
+EXPRESSION PREVIEW:
+  Case Name = Case Nozzle v2 1
+  Preview Expression = velocity at exit
+  Preview Mode = Evaluate Point
+END""")
+results1.SendCommand(Command="""PARAMETERIZATION:
+  RESPONSE FIELD: velocity at exit
+    Method = Expression
+    Expression Name = velocity at exit
+  END
+END""")
+Save(Overwrite=True)
+results1.Exit()
+optimizationComponent1.Refresh()
+optimizationCriterion1.DisplayText = ""
+optimizationModel1.DeleteOptimizationCriteria(OptimizationCriteria=[optimizationCriterion1])
+outputParameter2 = optimizationModel1.GetParameter(Name="P4")
+optimizationCriterion3 = outputParameter2.CreateOptimizationCriterion()
+optimizationCriterion3.ObjectiveType = "GT_MaximumPossible"
+screeningOptimization1.NumberOfSamples = 3
+optimizationModel1.NumberOfRetries = 1
+optimizationModel1.NumberOfRetries = 0
+Save(Overwrite=True)
+optimizationComponent1.Update(AllDependencies=True)
+ClearMessages()
+optimizationCriterion2.UpperBound = 0.03
+optimizationComponent1.Update(AllDependencies=True)
+chart1 = optimizationModel1.GetChart(Name="Candidates")
+outputParameter3 = optimizationModel1.GetParameter(Name="P3")
+chart1.EnableParameters(
+    Parameters=[outputParameter3],
+    IsEnabled=False)
+screeningOptimization1.NumberOfSamples = 10
+screeningOptimization1.MaxNumCandidates = 10
+screeningOptimization1.MaxNumCandidates = 5
+optimizationCriterion2.UpperBound = 0.1
+optimizationComponent1.Update(AllDependencies=True)
+Save(Overwrite=True)
+results1.Edit()
+results1.SendCommand(Command="> autolegend plot=/CONTOUR:Velocityplot, view=VIEW:View 1")
+results1.Exit()
+chart2 = optimizationModel1.GetChart(Name="Tradeoff")
+inputParameter3 = optimizationModel1.GetParameter(Name="P1")
+chart2.AssociateParameterToAxis(
+    Parameter=inputParameter3,
+    Axis="XAxis")
+Save(Overwrite=True)
