@@ -2,10 +2,10 @@
 <Storage>
   <Project Version="7.1">
     <base-designpoint-name valType="String">0</base-designpoint-name>
-    <timestamp-max valType="Int64">4098</timestamp-max>
+    <timestamp-max valType="Int64">4157</timestamp-max>
     <framework-build-version valType="String">16.1.91.0</framework-build-version>
     <external-version-string valType="String">Release 16.1</external-version-string>
-    <last-saved-utc valType="String">10/18/2015 16:51:10</last-saved-utc>
+    <last-saved-utc valType="String">10/18/2015 18:06:26</last-saved-utc>
     <logHistory valType="StringArray">
       <ArrayEntry Index="0">Peter@ZEUS-2:C:\Users\Peter\AppData\Local\Temp\WorkbenchLogs\CoreEvents5236.log</ArrayEntry>
       <ArrayEntry Index="1">Peter@ZEUS-2:C:\Users\Peter\AppData\Local\Temp\WorkbenchLogs\CoreEvents11092.log</ArrayEntry>
@@ -423,20 +423,20 @@
 "c2184956-977c-4685-938d-d88779e24217": "/Units/Quantity:Quantity 367",
 "545d28a9-268c-4134-9d63-e996bb9a69f2": "/Units/Quantity:Quantity 368",
 "ace101a5-1acc-46b7-ae5b-9c20c7a231f3": "/FileContainer/FileReference:F5",
+"404837ab-af12-41d0-a3e1-3963bddf6dc6": "/FileContainer/FileReference:F27",
+"3a24b6ac-94c2-4ae9-813f-5cc2eef2c9e0": "/FileContainer/FileReference:F26",
+"bf25d434-b835-40dc-abd4-5b34a3ccad51": "/FileContainer/FileReference:F25",
+"763901fb-ea4e-48b0-bbad-361eee3b50c0": "/FileContainer/FileReference:F24",
 "512fa824-9dd9-4aaf-a02e-652796a4cddc": "/FileTypesContainer/FileType:FluentMeshFileType",
 "75d083d7-4d0a-4227-803b-b8dafdd4546b": "/FileTypesContainer/FileType:FLUENTBc",
 "fc91e378-b54b-4677-be10-93e0af95193e": "/FileTypesContainer/FileType:FLUENTCase",
 "f5972c56-9f45-4352-9359-ca7535a31f88": "/FileContainer/FileReference:F15",
-"a28fc74c-ef02-41c5-b818-7a4c6798f54c": "/FileContainer/FileReference:F14",
-"551cae8b-8daf-4abb-baf6-7e963ab5b6c9": "/FileContainer/FileReference:F18",
-"44e59b97-c939-415d-b9b8-991ea413d724": "/FileContainer/FileReference:F16",
 "137608fd-2974-40a4-8900-e101f29ff311": "/FileContainer/FileReference:F17",
-"ae6dadb4-2fbb-498b-afa7-96d832e7f06b": "/FileContainer/FileReference:F22",
-"1cdff528-4ed8-42f7-89d7-0ff043e097e0": "/FileContainer/FileReference:F23",
 "9432ba39-e07c-4258-b589-b6e93ed6539c": "/FileContainer/FileReference:F21",
 "79c44a8f-34a4-4633-b7c1-c5b042919bc8": "/FileTypesContainer/FileType:FLUENTPdf",
 "51d2ef7b-61fa-4bd3-99e1-05337b63869e": "/FileTypesContainer/FileType:FLUENTData",
-"fe3264c9-7db3-4ff0-8d38-601322148c96": "/FileTypesContainer/FileType:CFDPostState"
+"fe3264c9-7db3-4ff0-8d38-601322148c96": "/FileTypesContainer/FileType:CFDPostState",
+"63f18107-f75d-4bdf-8829-8f034fb5ef7a": "/FileContainer/FileReference:F28"
 }</ReferenceList>
       </ProjectReferenceList>
       <DesignPointReferenceListCollection>
@@ -474,7 +474,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 4084, "Input": 1318, "Output": 1318}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 4154, "Input": 1318, "Output": 1318}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <last-update-regen-times valType="String">{}</last-update-regen-times>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
@@ -488,50 +488,50 @@
         <object-name valType="String">F3</object-name>
         <member-data valType="String">{"DisplayText": "FFF.agdb", "FileType": $$f765b785-2b2d-4424-8631-5510cd95af75, "DependentFiles": [], "ContainerAssociations": ["Geometry"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\DM\FFF.agdb", "ReferenceCount": 1}</member-data>
       </Object>
-      <Object Name="/FileContainer/FileReference:F14" Version="1.0">
+      <Object Name="/FileContainer/FileReference:F28" Version="1.0">
         <class-type valType="String">FileReference</class-type>
-        <object-name valType="String">F14</object-name>
-        <member-data valType="String">{"DisplayText": "FFF.1.msh", "FileType": $$512fa824-9dd9-4aaf-a02e-652796a4cddc, "DependentFiles": [], "ContainerAssociations": ["Mesh", "Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\MECH\FFF.1.msh", "ReferenceCount": 2}</member-data>
+        <object-name valType="String">F28</object-name>
+        <member-data valType="String">{"DisplayText": "FFF-3-00061.dat.gz", "FileType": $$51d2ef7b-61fa-4bd3-99e1-05337b63869e, "DependentFiles": [], "ContainerAssociations": ["Solution"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF-3-00061.dat.gz", "ReferenceCount": 1}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F5" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F5</object-name>
         <member-data valType="String">{"DisplayText": "engineassembly1.SLDPRT", "FileType": $$f765b785-2b2d-4424-8631-5510cd95af75, "DependentFiles": [], "ContainerAssociations": ["Geometry"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"D:\Individual Project (Uni stuff annex)\Year-3-IP\Complete Simulations\Swirler and M1.4 nozzle\engineassembly1.SLDPRT", "ReferenceCount": 1}</member-data>
       </Object>
-      <Object Name="/FileContainer/FileReference:F18" Version="1.0">
-        <class-type valType="String">FileReference</class-type>
-        <object-name valType="String">F18</object-name>
-        <member-data valType="String">{"DisplayText": "FFF.1-Setup-Output.cas.gz", "FileType": $$fc91e378-b54b-4677-be10-93e0af95193e, "DependentFiles": [], "ContainerAssociations": ["Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1-Setup-Output.cas.gz", "ReferenceCount": 1}</member-data>
-      </Object>
       <Object Name="/FileContainer/FileReference:F15" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F15</object-name>
         <member-data valType="String">{"DisplayText": "FFF.mshdb", "FileType": $$a4d9a31e-de2a-4426-ab72-5ad249c36261, "DependentFiles": [], "ContainerAssociations": ["Mesh"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\global\MECH\FFF.mshdb", "ReferenceCount": 1}</member-data>
       </Object>
-      <Object Name="/FileContainer/FileReference:F16" Version="1.0">
+      <Object Name="/FileContainer/FileReference:F27" Version="1.0">
         <class-type valType="String">FileReference</class-type>
-        <object-name valType="String">F16</object-name>
-        <member-data valType="String">{"DisplayText": "FFF.1.set", "FileType": $$75d083d7-4d0a-4227-803b-b8dafdd4546b, "DependentFiles": [], "ContainerAssociations": ["Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1.set", "ReferenceCount": 1}</member-data>
+        <object-name valType="String">F27</object-name>
+        <member-data valType="String">{"DisplayText": "FFF-3.cas.gz", "FileType": $$fc91e378-b54b-4677-be10-93e0af95193e, "DependentFiles": [$$63f18107-f75d-4bdf-8829-8f034fb5ef7a], "ContainerAssociations": ["Solution"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF-3.cas.gz", "ReferenceCount": 1}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F17" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F17</object-name>
         <member-data valType="String">{"DisplayText": "FFF.1.pdf", "FileType": $$79c44a8f-34a4-4633-b7c1-c5b042919bc8, "DependentFiles": [], "ContainerAssociations": ["Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1.pdf", "ReferenceCount": 1}</member-data>
       </Object>
-      <Object Name="/FileContainer/FileReference:F22" Version="1.0">
+      <Object Name="/FileContainer/FileReference:F25" Version="1.0">
         <class-type valType="String">FileReference</class-type>
-        <object-name valType="String">F22</object-name>
-        <member-data valType="String">{"DisplayText": "FFF.1-2.cas.gz", "FileType": $$fc91e378-b54b-4677-be10-93e0af95193e, "DependentFiles": [$$1cdff528-4ed8-42f7-89d7-0ff043e097e0], "ContainerAssociations": ["Solution"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1-2.cas.gz", "ReferenceCount": 1}</member-data>
+        <object-name valType="String">F25</object-name>
+        <member-data valType="String">{"DisplayText": "FFF-Setup-Output.cas.gz", "FileType": $$fc91e378-b54b-4677-be10-93e0af95193e, "DependentFiles": [], "ContainerAssociations": ["Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF-Setup-Output.cas.gz", "ReferenceCount": 1}</member-data>
       </Object>
-      <Object Name="/FileContainer/FileReference:F23" Version="1.0">
+      <Object Name="/FileContainer/FileReference:F26" Version="1.0">
         <class-type valType="String">FileReference</class-type>
-        <object-name valType="String">F23</object-name>
-        <member-data valType="String">{"DisplayText": "FFF.1-2-00386.dat.gz", "FileType": $$51d2ef7b-61fa-4bd3-99e1-05337b63869e, "DependentFiles": [], "ContainerAssociations": ["Solution"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.1-2-00386.dat.gz", "ReferenceCount": 1}</member-data>
+        <object-name valType="String">F26</object-name>
+        <member-data valType="String">{"DisplayText": "FFF.set", "FileType": $$75d083d7-4d0a-4227-803b-b8dafdd4546b, "DependentFiles": [], "ContainerAssociations": ["Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Fluent\FFF.set", "ReferenceCount": 1}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F21" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F21</object-name>
         <member-data valType="String">{"DisplayText": "Fulltest-1.cst", "FileType": $$fe3264c9-7db3-4ff0-8d38-601322148c96, "DependentFiles": [], "ContainerAssociations": ["Results"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\Post\Fulltest-1.cst", "ReferenceCount": 1}</member-data>
+      </Object>
+      <Object Name="/FileContainer/FileReference:F24" Version="1.0">
+        <class-type valType="String">FileReference</class-type>
+        <object-name valType="String">F24</object-name>
+        <member-data valType="String">{"DisplayText": "FFF.msh", "FileType": $$512fa824-9dd9-4aaf-a02e-652796a4cddc, "DependentFiles": [], "ContainerAssociations": ["Mesh", "Setup"], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\FFF\MECH\FFF.msh", "ReferenceCount": 2}</member-data>
       </Object>
     </Container>
     <Container Name="Messages" Version="1.0">
@@ -539,7 +539,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 3758, "Input": 1319, "Output": 1319}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 4138, "Input": 1319, "Output": 1319}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <last-update-regen-times valType="String">{}</last-update-regen-times>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
@@ -578,6 +578,17 @@
         <object-name valType="String">Message</object-name>
         <member-data valType="String">{"DisplayText": "Message", "MessageType": "Error", "Summary": "Update failed for the Mesh component in Fulltest-1.  Error updating cell Mesh in system Fulltest-1. View the messages in the Meshing editor for more details.", "Details": None, "Association": "", "DateTimeStamp": 10/18/2015 15:43:07, "Visibility": "Error", "MessageSourceContainer": None, "MessageSourceEntity": $$1b2a333d-8720-4d22-8c2f-e7b01643e0bb, "AdditionalMessageData": None}</member-data>
       </Object>
+      <Object Name="/Messages/StoredMessage:Message 7" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 7</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Warning", "Summary": "Data entity not found: /FileContainer/FileReference:F22", "Details": """Ansys.Core.DataModel.DataEntityNotFoundException: Data entity not found: /FileContainer/FileReference:F22
+   at Ansys.Core.DataModel.DataObjects.DataObjectContainer.TryBind[TInterface](TypeNamePair id)
+   at Ansys.Core.FileManagement.Queries.GetFileEntityPropertiesQuery.Execute(IQueryContext context)
+   at Ansys.Core.Commands.Concurrency.QueryWorkUnit.executeInContext(CommandContext subContext, IExecutionEngineCallback tracer)
+   at Ansys.Core.Commands.Concurrency.BaseWorkUnit.doExecute(IExecutionEngineCallback executionEngine, CommandContext subContext)
+   at Ansys.Core.Commands.Concurrency.BaseWorkUnit.Execute(IExecutionEngineCallback executionEngine, Boolean dontCatchExceptions)
+""", "Association": "", "DateTimeStamp": 10/18/2015 18:49:30, "Visibility": "Warning", "MessageSourceContainer": None, "MessageSourceEntity": None, "AdditionalMessageData": None}</member-data>
+      </Object>
     </Container>
     <Container Name="Parameters" Version="1.0">
       <container-type valType="String">Ansys.ParameterManager.ParameterManagerAddin:parameters</container-type>
@@ -586,7 +597,7 @@
       <maxUpdateOrder valType="Double">1</maxUpdateOrder>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 3808, "Input": 1323, "Output": 1322}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 4121, "Input": 1323, "Output": 1322}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <last-update-regen-times valType="String">{}</last-update-regen-times>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
@@ -604,7 +615,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 3884, "Input": 3247, "Output": 1324}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 4122, "Input": 3247, "Output": 1324}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <last-update-regen-times valType="String">{}</last-update-regen-times>
       <contains-significant-data valType="Boolean">true</contains-significant-data>

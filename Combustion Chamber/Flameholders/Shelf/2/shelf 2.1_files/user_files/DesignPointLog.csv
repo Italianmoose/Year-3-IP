@@ -1,0 +1,12 @@
+﻿# 
+# This file contains the parameter values of the Design Points successfully updated by ANSYS Workbench.
+# Project name: shelf 2
+# Creation date: 10/20/2015 13:51:02
+# 
+# 10/20/2015 13:51:02
+# The parameters defined in the project are:
+# P1 - XYPlane.V4 [mm],P2 - XYPlane.V5 [mm]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P2
+DP 0,36,50

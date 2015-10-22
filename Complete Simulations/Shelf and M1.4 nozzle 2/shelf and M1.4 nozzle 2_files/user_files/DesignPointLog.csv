@@ -1,0 +1,53 @@
+﻿# 
+# This file contains the parameter values of the Design Points successfully updated by ANSYS Workbench.
+# Project name: shelf 2
+# Creation date: 10/20/2015 13:51:02
+# 
+# 10/20/2015 13:51:02
+# The parameters defined in the project are:
+# P1 - XYPlane.V4 [mm],P2 - XYPlane.V5 [mm]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P2
+DP 0,36,50
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/22/2015 13:59:58
+# 
+# 
+# 10/22/2015 14:03:01
+# Parameters have been added and/or removed. The parameters now defined in the project are:
+# P1 - fuel-flow [kg s^-1],P2 - heat-output [K]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P2
+DP 1,0.0225,534.14393
+DP 2,0.027500000000000004,529.18881
+DP 3,0.0325,544.66577
+DP 4,0.0375,513.86017
+DP 5,0.0425,515.68117
+DP 6,0.0475,516.2107
+DP 7,0.052500000000000005,527.46022
+DP 8,0.057500000000000009,529.18402
+DP 9,0.062500000000000014,499.65678
+DP 10,0.0675,501.2428
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/22/2015 14:31:48
+# 
+# 
+# 10/22/2015 15:16:32
+# Parameters have been added and/or removed. The parameters now defined in the project are:
+# P1 - fuel-flow [kg s^-1],P2 - heat-output [K],P3 - fuel-flow [kg s^-1],P4 - heat-output [K],P5 - stag-pres-out [Pa],P6 - stag-pres-in [Pa]
+# 
+# The following header line defines the name of the columns by reference to the parameters.
+Name,P1,P2,P3,P4,P5,P6
+DP 1,0.025,1098.8535,0.05267,663.18015,249382.12,265736.52
+DP 2,0.035,1120.0033,0.05267,663.18015,248754.74,263950.01
+DP 3,0.045,1081.8835,0.05267,663.18015,248051.53,264058.6
+DP 4,0.054999999999999993,1099.4158,0.05267,663.18015,250349.04,272948.04
+DP 5,0.065,1138.4262,0.05267,663.18015,249434.33,272325.16
+# 
+# A non parametric change occurred and invalidated design point results.
+# 10/22/2015 15:43:02
+# 
